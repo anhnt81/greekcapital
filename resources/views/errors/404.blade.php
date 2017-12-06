@@ -1,4 +1,4 @@
-@extends('news.layout.single')
+@extends('admin.layout.layout')
 
 @section('content')
 <!-- Content -->

@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Chuyên Mục
+                <h1 class="page-header">Danh Mục Sản Phẩm
                     <small>Thêm</small>
                 </h1>
             </div>
@@ -27,21 +27,20 @@
                 <form action="admin/category/add" method="POST">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
-                        <label>Tên Chuyên Mục</label>
-                        <input class="form-control" name="cate_name" id="title" placeholder="Tên Chuyên Mục" />
-                    </div>
-                     <div class="form-group">
-                        <label>Đường dẫn</label>
-                        <input class="form-control" name="slug" id="slug" placeholder="Slug được tạo tự động" />
+                        <label>Tên Danh Mục</label>
+                        <input class="form-control" name="cate_name" id="title" placeholder="Tên Danh Mục" />
                     </div>
                     <div class="form-group">
-                        <label>Thuộc Chuyên Mục</label>
-                         <select class="form-control" name="parent_id">
-                            <option disabled selected value> -- Chuyên Mục cha -- </option>
-                        @foreach($cates as $cate)
-                            <option value="{{ $cate->id }}">{{ $cate->name }}</option>
-                        @endforeach
-                    </select>
+                        <label>Ngôn ngữ</label>
+                        <select class="form-control" name="locale">
+                            <option disabled selected value> -- Chọn ngôn ngữ --</option>
+                            <option value="1">{{config('local.language.vi')}}</option>
+                            <option value="2">{{config('local.language.en')}}</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label>Thỏa thuận</label>
+                        <input type="checkbox" name="exception" id="exception" />
                     </div>
                     <button type="reset" class="btn btn-default">Làm mới</button>
                     <button type="submit" class="btn btn-primary">Thêm</button>
@@ -53,16 +52,4 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-@endsection
-@section('script')
-    <script src="js/slug.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#title').keyup(function(event) {
-                var title = $('#title').val();
-                var slug = ChangeToSlug(title);
-                $('#slug').val(slug);
-            });
-        });
-    </script>
 @endsection

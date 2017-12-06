@@ -15,12 +15,10 @@ class CreateGcapitalTable extends Migration
     {
         Schema::create('gcapital', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('trans_id')->unsigned();
-            $table->string('name');
+            $table->string('title');
             $table->text('content');
+            $table->string('icon');
             $table->string('locale')->index();
-            $table->unique(['trans_id','locale']);
-            $table->foreign('trans_id')->references('id')->on('translations')->onDelete('cascade');
         });
     }
 

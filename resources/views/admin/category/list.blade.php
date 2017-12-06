@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-11">
-                <h1 class="page-header">Chuyên Mục
+                <h1 class="page-header">Danh Mục
                     <small>Danh Sách</small>
                 </h1>
             </div>
@@ -15,9 +15,7 @@
                     <tr class="text-center">
                         <th>ID</th>
                         <th>Tên</th>
-                        <th>Đường Dẫn</th>
-                        <th>ID Mục Cha</th>
-                        <th>Số Bài</th>
+                        <th>Trạng thái</th>
                         <th>Hành Động</th>
                     </tr>
                 </thead>
@@ -33,28 +31,20 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Chỉnh Sửa Chuyên Mục</h4>
+            <h4 class="modal-title">Chỉnh Sửa Danh Mục</h4>
         </div>
         <div class="modal-body">
             <form id="form-update">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="recipient-name" class="control-label">Tên Chuyên Mục</label>
+                    <label for="recipient-name" class="control-label">Tên Danh Mục</label>
                     <input type="hidden" name="id" id="id">
                     <input type="text" class="form-control" id="cate-name" name="cate-name">
                 </div>
                 <div class="form-group">
-                    <label for="recipient-name" class="control-label">Đường dẫn</label>
-                    <input type="text" class="form-control" id="slug" name="slug">
+                    <label>Thỏa thuận</label>
+                    <input type="checkbox" name="exception" id="exception" />
                 </div>
-                  <div class="form-group">
-                    <label for="message-text" class="control-label">Chuyên Mục Cha</label>
-                        <select class="form-control" id="parent" name="parent">
-                            @foreach($cates as $cate)
-                                <option value="{{ $cate->id }}">{{ $cate->name }}</option>
-                            @endforeach
-                        </select>
-                  </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-success" id="save">Lưu Thay Đổi</button>
@@ -70,13 +60,13 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Xóa Chuyên Mục</h4>
+            <h4 class="modal-title">Xóa Danh Mục</h4>
         </div>
         <div class="modal-body">
             <form id="form-delete">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" id="del-id">
-                <p>Bạn có chắc muốn xóa chuyên mục <strong id="del-name"></strong> cũng như các bài viết trong đó?</p>
+                <p>Bạn có chắc muốn xóa Danh Mục <strong id="del-name"></strong> cũng như các bài viết trong đó?</p>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-danger" id="delete">Xóa</button>
@@ -93,12 +83,6 @@
  <!-- DataTables JavaScript -->
  <script type="text/javascript">
     $(document).ready(function() {
-        //creat slug
-         $('#cate-name').keyup(function(event) {
-            var title = $('#cate-name').val();
-            var slug = ChangeToSlug(title);
-            $('#slug').val(slug);
-        });
         /* Get datatable from  route('data') */
         var datatable = $('#cate_list').DataTable({
             processing: true,
@@ -107,9 +91,7 @@
             columns: [
                 { data: 'id', name: 'id' },
                 { data: 'name', name: 'name' },
-                { data: 'slug', name: 'slug' },
-                { data: 'parent_id', name: 'parent_id' },
-                { data: 'post_count', name: 'post_count' },
+                { data: 'exception', name: 'exception' },
                 { data: 'action', name: 'action' },
             ]
         });
@@ -119,14 +101,14 @@
             var currentRow = button.closest("tr");
             var id=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
             var name=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
-            var slug=currentRow.find("td:eq(2)").text(); // get current row 2nd TD
-            var sl_name=currentRow.find("td:eq(3)").text(); // get current row 3rd TD
+            var exception=currentRow.find("td:eq(2)").text(); // get current row 2nd TD
             var modal = $(this);
             modal.find('.modal-body #id').val(id);
             modal.find('.modal-body #cate-name').val(name);
-            modal.find('.modal-body #slug').val(slug);
-            if( sl_name ) modal.find('.modal-body #parent').val(sl_name)
-            else { modal.find('.modal-body #parent').val(null) }
+
+            if(exception == "Thỏa Thuận"){
+                modal.find('.modal-body #exception').prop("checked", true);
+            }
         });
         /* Send request update Ajax*/
         $("#form-update").on( "submit", function( event ) {

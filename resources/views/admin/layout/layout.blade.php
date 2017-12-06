@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
-    <title>Greek Capotal</title>
-    
+    <title>Greek Capital</title>
+
     <base href="{{ asset('') }}"></base>
 
     <!-- Bootstrap Core CSS -->
@@ -40,6 +40,7 @@
 
    <!-- jQuery -->
     <script src="{{ URL::asset('admin_asset/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('admin_asset/bower_components/jquery/dist/jquery.validate.js') }}"></script>
 
    <!-- Bootstrap Core JavaScript -->
     <script src="{{ URL::asset('admin_asset/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>

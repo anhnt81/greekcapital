@@ -18,9 +18,4 @@ return [
     'our_team' => 'ĐỘI NGŨ',
     'media' => 'TRUYỀN THÔNG',
     'contact' => 'LIÊN HỆ',
-    'lang' => [
-        'en' => 'English',
-        'vi' => 'Tiếng Việt',
-    ],
-
 ];

@@ -21,7 +21,6 @@
                         <th>ID</th>
                         <th>Tên</th>
                         <th>Email</th>
-                        <th>Ngày Sinh</th>
                         <th>Tạo Lúc</th>
                         <th>Hành Động</th>
                     </tr>
@@ -111,7 +110,6 @@
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
                     {data: 'email', name: 'email'},
-                    {data: 'birthday', name: 'birthday'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'action', name: 'action'},
                 ]

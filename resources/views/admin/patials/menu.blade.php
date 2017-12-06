@@ -35,26 +35,34 @@
                 <a href="admin/category"><i class="fa fa-table fa-fw"></i> Chuyên Mục<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/category">Danh Sách Chuyên Mục</a>
+                        <a href="admin/category">Danh Sách Danh Mục</a>
                     </li>
                     <li>
-                        <a href="admin/category/add">Thêm Chuyên Mục</a>
+                        <a href="admin/category/add">Thêm Danh Mục</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
 
-            <li>
-                <a href="laravel-filemanager?type=Images&CKEditor=demo&CKEditorFuncNum=1&langCode=en"><i class="fa fa-file-image-o fa-fw"></i> Tệp tin</a>
-            </li>
+            {{--<li>--}}
+                {{--<a href="laravel-filemanager?type=Images&CKEditor=demo&CKEditorFuncNum=1&langCode=en"><i class="fa fa-file-image-o fa-fw"></i> Tệp tin</a>--}}
+            {{--</li>--}}
 
             <li>
-                <a href="admin/tag"><i class="fa fa-tags fa-fw"></i> Tags</a>
+                <a href="admin/product"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i> Quản Lý Sản Phẩm</a>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="admin/employee"><i class="glyphicon glyphicon-user" aria-hidden="true"></i> Quản Lý Nhân Viên</a>
                 <!-- /.nav-second-level -->
             </li>
 
             <li>
                 <a href="admin/author"><i class="fa fa-users fa-fw"></i> Quản lý Author</a>
+            </li>
+
+            <li>
+                <a href="admin/content"><i class="fa fa-newspaper-o"></i> Quản lý Nội Dung</a>
             </li>
             @endif
         </ul>

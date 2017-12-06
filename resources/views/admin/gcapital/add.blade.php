@@ -24,7 +24,7 @@
                     <strong>{{session('errfile')}}</strong>
                 </div>
             @endif
-           
+
             <form action="admin/post/add" method="POST" enctype="multipart/form-data">
                  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-group">
@@ -32,37 +32,20 @@
                     <input type="text" name="title" id="title" class="form-control" value="{{ old('title')}}" placeholder="Nhập Tiêu Đề">
                 </div>
                 <div class="form-group">
-                    <label>Đường dẫn</label>
-                    <input type="text" name="slug" id="slug" class="form-control" value="{{ old('slug')}}">
-                </div>
-                <div class="form-group">
-                    <label>Chuyên mục</label>
-                    <select class="form-control" name="category_id">
-                        @foreach($cates as $cate)
-                        <option value="{{ $cate->id }}">{{ $cate->name }}</option>
-                        @endforeach
+                    <label>Ngôn ngữ</label>
+                    <select class="form-control" name="locale">
+                        <option disabled selected value> -- Chọn ngôn ngữ -- </option>
+                        <option value="1">{{config('local.language.vi')}}</option>
+                        <option value="2">{{config('local.language.en')}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Tóm Tắt</label>
-                    <textarea name="des" class="form-control" rows="3">{{ old('des')}}</textarea>
-                </div>
-
                 <div class="form-group">
                     <label>Nội Dung</label>
                     <textarea name="content" id="demo" class="form-control ckeditor" rows="3">{{ old('content')}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label>Hình Ảnh</label>
-                    <input type="file" name="img_post" class="form-control" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label>Thẻ Tag ( cách nhau bằng khoảng trắng )</label>
-                    <select class="js-example-basic-multiple" name="tags[]" multiple="multiple" style="width: 100%">
-                        @foreach($tags as $tag)
-                            <option value="{{$tag->id}}">{{$tag->name}}</option>
-                        @endforeach
-                    </select>
+                    <label>Icon</label>
+                    <input type="text" name="icon" id="icon" class="form-control" value="{{ old('icon')}}" placeholder="Nhập icon">
                 </div>
                 <button type="reset" class="btn btn-default">Làm Mới</button>
                 <button type="submit" class="btn btn-primary">Thêm</button>

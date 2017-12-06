@@ -5,7 +5,7 @@
     <div class="container">
 
         <div id="logo" class="pull-left">
-            <a href="#hero"><img src="img/logo.png" alt="" title="" /></a>
+            <a href="#hero"><img height="50px" width="200px" src="{{ URL::asset('image/test.png') }}" alt="" title="" /></a>
             <!-- Uncomment below if you prefer to use a text logo -->
             <!--<h1><a href="#hero">Regna</a></h1>-->
         </div>
@@ -33,3 +33,4 @@
         </nav><!-- #nav-menu-container -->
     </div>
 </header><!-- #header -->
+

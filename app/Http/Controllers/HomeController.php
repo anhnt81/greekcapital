@@ -10,11 +10,10 @@ class HomeController extends Controller
     public function index()
     {
         app()->setLocale('vi');
-//        $list = Gcapital::all()->toArray();
-//        echo '<pre>';
-//        print_r($list);
-//        die;
-        return view('front-end.index');
+        $gcapital = Gcapital::all();
+
+        return view('front-end.index',compact('gcapital'));
+
     }
     public function getLanguage(Request $request)
     {

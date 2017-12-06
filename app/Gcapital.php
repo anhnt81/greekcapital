@@ -20,6 +20,6 @@ class Gcapital extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'content',
+        'title', 'content','icon','locale'
     ];
 }

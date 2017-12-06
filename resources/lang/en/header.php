@@ -18,9 +18,4 @@ return [
     'road_map' => 'ROAD MAP',
     'media' => 'MEDIA',
     'contact' => 'CONTACT',
-    'lang' => [
-        'en' => 'English',
-        'vi' => 'Tiếng Việt',
-    ],
-
 ];

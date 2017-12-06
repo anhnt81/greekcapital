@@ -9,10 +9,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Favicons -->
-    <link rel="stylesheet" href="{{ URL::asset('front-end/img/favicon.png') }}"/>
-    <link rel="apple-touch-icon" href="{{ URL::asset('front-end/img/apple-touch-icon.png') }}"/>
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
           rel="stylesheet">
@@ -27,11 +23,33 @@
     <!-- Main Stylesheet File -->
     <link rel="stylesheet" href="{{ URL::asset('front-end/css/style.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/collapse.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}"/>
     <!-- =======================================================
       Author: AnhNT
       License: https://bootstrapmade.com/license/
     ======================================================= -->
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript">
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) {
+                z._.push(c)
+            }, $ = z.s =
+                d.createElement(s), e = d.getElementsByTagName(s)[0];
+            z.set = function (o) {
+                z.set._.push(o)
+            };
+            z._ = [];
+            z.set._ = [];
+            $.async = !0;
+            $.setAttribute('charset', 'utf-8');
+            $.src = 'https://v2.zopim.com/?5Iblxa3HyX0YXirXJNoKKN5cZvAwNSfS';
+            z.t = +new Date;
+            $.type = 'text/javascript';
+            e.parentNode.insertBefore($, e)
+        })(document, 'script');
+    </script>
+    <!--End of Zendesk Chat Script-->
 </head>
 <body>
 @include('front-end.layouts.header')
@@ -53,6 +71,7 @@
 </body>
 
 <!-- JavaScript Libraries -->
+<script src="{{ URL::asset('front-end/lib/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('front-end/lib/jquery/jquery.min.js') }}"></script>
 <script src="{{ URL::asset('front-end/lib/jquery/jquery-migrate.min.js') }}"></script>
 <script src="{{ URL::asset('front-end/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -70,6 +89,7 @@
 
 <!-- Template Main Javascript File -->
 <script src="{{ URL::asset('front-end/js/main.js') }}"></script>
+<script src="{{ URL::asset('front-end/js/collapse.js') }}"></script>
 <script src="{{ URL::asset('front-end/js/jquery.particleground.js') }}"></script>
 <script src="{{ URL::asset('front-end/js/jquery.particleground.min.js') }}"></script>
 <script src="{{ URL::asset('front-end/js/particleground.js') }}"></script>

@@ -15,15 +15,12 @@ class CreateEmployeeTable extends Migration
     {
         Schema::create('employee', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('trans_id')->unsigned();
             $table->string('name');
             $table->string('position');
             $table->string('info');
             $table->string('image');
-            $table->string('status');
-            $table->string('locale')->index();
-            $table->unique(['trans_id', 'locale']);
-            $table->foreign('trans_id')->references('id')->on('translations')->onDelete('cascade');
+            $table->boolean('status')->default(1);
+            $table->string('locale');
             $table->timestamps();
         });
     }

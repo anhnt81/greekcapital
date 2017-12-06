@@ -26,34 +26,43 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
     /* Group post*/
     Route::prefix('post')->group(function () {
-        Route::get('/', 'PostController@getList')->name('list-post');
-        Route::get('add', 'PostController@getAdd');
-        Route::put('updateStatus', 'PostController@updateStatus');
-        Route::put('updateHot', 'PostController@updateHot');
-        Route::post('add', 'PostController@postAdd');
-        Route::get('update/{id}', 'PostController@getUpdate');
-        Route::post('update/{id}', 'PostController@postUpdate');
-        Route::get('delete/{id}', 'PostController@getDelete');
+        Route::get('/', 'GcapitalController@getList')->name('list-post');
+        Route::get('add', 'GcapitalController@getAdd');
+        Route::put('updateStatus', 'GcapitalController@updateStatus');
+        Route::post('add', 'GcapitalController@postAdd');
+        Route::get('update/{id}', 'GcapitalController@getUpdate');
+        Route::post('update/{id}', 'GcapitalController@postUpdate');
+        Route::get('delete/{id}', 'GcapitalController@getDelete');
     });
 
     /* Group for admin */
     Route::middleware(['role'])->group(function () {
         /* Group category */
         Route::prefix('category')->group(function () {
-            Route::get('/', 'CategoryController@getList');
+            Route::get('/', 'CategoryController@getList')->name('list-category');
             Route::get('add', 'CategoryController@getAdd');
             Route::post('add', 'CategoryController@postAdd');
             Route::get('data', 'CategoryController@dataTable')->name('data');
             Route::post('update', 'CategoryController@postUpdate');
             Route::delete('delete', 'CategoryController@delete');
         });
-        /* Group file */
-        Route::prefix('tag')->group(function () {
-            Route::get('/', 'TagController@getList')->name('list-tag');
-            Route::get('data', 'TagController@dataTable')->name('data-tag');
-            Route::post('add', 'TagController@postAdd');
-            Route::put('update', 'TagController@putUpdate');
-            Route::delete('delete', 'TagController@delete');
+        /* Group employee */
+        Route::prefix('employee')->group(function () {
+            Route::get('/', 'EmployeeController@getList')->name('list-employee');
+            Route::post('add', 'EmployeeController@postAdd')->name('add-employee');
+            Route::put('updateStatus', 'EmployeeController@updateStatus');
+            Route::get('update/{id}', 'EmployeeController@getUpdate');
+            Route::post('update/{id}', 'EmployeeController@postUpdate');
+            Route::delete('delete', 'EmployeeController@delete');
+        });
+        /* Group product */
+        Route::prefix('product')->group(function () {
+            Route::get('/', 'ProductController@getList')->name('list-product');
+            Route::post('add', 'ProductController@postAdd')->name('add-product');
+            Route::put('updateStatus', 'ProductController@updateStatus');
+            Route::get('update/{id}', 'ProductController@getUpdate');
+            Route::post('update/{id}', 'ProductController@postUpdate');
+            Route::delete('delete', 'ProductController@delete');
         });
         /* Group author */
         Route::prefix('author')->group(function () {
@@ -61,6 +70,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
             Route::get('data', 'AdminController@dataTable')->name('data-author');
             Route::post('add', 'AdminController@postAdd');
             Route::delete('delete', 'AdminController@delete');
+        });
+        /* Group content */
+        Route::prefix('content')->group(function () {
+            Route::get('/', 'ContentController@getList')->name('list-content');
+            Route::get('data', 'ContentController@dataTable')->name('list-content');
+            Route::post('add', 'ContentController@postAdd');
+            Route::delete('delete', 'ContentController@delete');
         });
     });
 });
