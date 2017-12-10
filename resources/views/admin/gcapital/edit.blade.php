@@ -44,8 +44,9 @@
                                       rows="3">{!! $post->content !!}</textarea>
                         </div>
                         <div class="form-group">
-                            <label>Icon</label>
-                            <input type="text" name="icon" id="icon" class="form-control" value="{!! $post-> icon !!}" placeholder="Nhập icon">
+                            <label for="recipient-name" class="control-label">Hình ảnh</label><br/>
+                            <img style="width: 75px;height: 75px;margin-bottom: 10px;" src="{{$post->image}}"/>
+                            <input type="file" name="img_post" class="form-control">
                         </div>
                         <button type="reset" class="btn btn-default">Làm Mới</button>
                         <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>

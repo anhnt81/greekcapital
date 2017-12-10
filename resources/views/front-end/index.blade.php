@@ -1,250 +1,439 @@
 @extends('front-end.layouts.master')
 @section('content')
-    <!--==========================
-      About Us Section
-    ============================-->
-    <section id="about" style="padding: 40px;">
+    <!-- About Us -->
+    <section id="about">
         <div class="container">
-            <div class="row about-container">
-
-                <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
-                    <center>
-                        <img height="100px" width="200px" src="{{ URL::asset('image/logo.png') }}"/>
-                    </center>
+            <div class="row text-center heading">
+                <div class="wow animated zoomInDown heading-text">
+                    <h3>About Us</h3>
+                    <hr class="full">
+                    <br/>
                 </div>
+            </div>    <!-- row -->
+            <div class="row about-us-text">
+                <div class="col-md-12">
+                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>    <!-- row -->
+            <div class="row main_content">
+                <div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">
+                    <figure>
+                        <img class="pro img-responsive center-block" src="front-end/img/3-col-icons-web.png"
+                             alt="image">
+                    </figure>
+                    <h5 class="text-center">RESPONSIVE</h5>
+                </div>    <!-- col-md-4 -->
 
-                <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
-                    <h2 class="title">Greek Capital</h2>
-                    <p>
-                        Giới thiệu về Greek Capital.
-                        Sự phát triển các thứ các thứ !
-                    </p>
+                <div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">
+                    <figure>
+                        <img class="pro img-responsive center-block" src="front-end/img/3-col-icons-android.png"
+                             alt="image">
+                    </figure>
+                    <h5 class="text-center">ANDROID</h5>
+                </div>    <!-- col-md-4 -->
+
+                <div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">
+                    <figure>
+                        <img class="pro img-responsive center-block" src="front-end/img/3-col-icons-iphone.png"
+                             alt="image">
+                    </figure>
+                    <h5 class="text-center">iOS</h5>
+                </div>    <!-- col-md-4 -->
+            </div><!-- row main_content -->
+        </div>    <!-- container -->
+    </section>    <!-- about us -->
+
+    <!-- Greek Capital -->
+    <section id="greek_capital">
+        <div class="container">
+            <div class="row text-center heading">
+                <div class="wow animated zoomInDown heading-text">
+                    <h3>{{trans('header.greek_capital')}}</h3>
                 </div>
             </div>
-
-        </div>
-    </section><!-- #about -->
-
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services">
-        <div class="container wow fadeIn">
-            <div class="section-header">
-                <h4 style="font-size: 24px;padding-bottom:80px;" class="section-title">Tại sao nên chọn
-                    GreekCapital? </h4>
-            </div>
-            <div class="row">
-                @foreach($gcapital as $value)
-                    <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="box">
-                            @if($value->locale == 'vi')
-                                <div class="icon"><a href=""><i class="{!! $value->icon !!}"></i></a></div>
-                                <h4 class="title"><a href="">{!! $value->title !!}</a></h4>
-                                <p class="description">{!! $value->content !!}</p>
+            <div class="main_content">
+                <div class="services">
+                    <div class="row">
+                        @foreach($gcapital as $gcap)
+                            @if ( Config::get('app.locale') == 'en')
+                                @if($gcap->locale == 'en')
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="service">
+                                            <img width="200px" height="150px" src="{!! $gcap->image !!}" alt="service1">
+                                            <div class="text-center">
+                                                <h4>{!! $gcap->title !!}</h4>
+                                                {!! $gcap->content !!}
+                                            </div> <!-- .text-center -->
+                                        </div> <!-- .service -->
+                                    </div> <!-- .col-md-3 -->
+                                @endif
+                            @elseif ( Config::get('app.locale') == 'vi' )
+                                @if($gcap->locale == 'vi')
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="service">
+                                            <img width="200px" height="150px" src="{!! $gcap->image !!}" alt="service1">
+                                            <div class="text-center">
+                                                <h4>{!! $gcap->title !!}</h4>
+                                                {!! $gcap->content !!}
+                                            </div> <!-- .text-center -->
+                                        </div> <!-- .service -->
+                                    </div> <!-- .col-md-3 -->
+                                @endif
                             @endif
-                            @if($value->locale == 'en')
-                                <div class="icon"><a href=""><i class="{!! $value->icon !!}"></i></a></div>
-                                <h4 class="title"><a href="">{!! $value->title !!}</a></h4>
-                                <p class="description">{!! $value->content !!}</p>
+                        @endforeach
+                    </div>    <!-- row -->
+                </div>    <!-- services -->
+            </div>    <!-- main_content -->
+        </div>    <!-- container -->
+    </section>    <!-- Greek Capital -->
+
+    <!-- Meet With Us -->
+    <section id="Meet">
+        <div class="container">
+            <div class="row text-center heading">
+                <div class="wow animated zoomInDown heading-text">
+                    <h3>{{ trans('header.our_team') }}</h3>
+                    <hr class="full">
+                </div>    <!-- row -->
+            </div> <!-- #heading-text -->
+        </div>
+        <div class="main_content">
+            <div class="container">
+                <div class="row">
+                    @foreach($employee as $emp)
+                        @if ( Config::get('app.locale') == 'en')
+                            @if($emp->locale == 'en')
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="meet-item">
+                                        <img width="300px" height="200px" src="{{ $emp->image }}" alt="meet1">
+                                        <div class="text-center">
+                                            <h4>{!! $emp->name !!}</h4>
+                                            <p>{!! $emp->positon !!}</p>
+                                            {!! $emp->info !!}
+                                        </div> <!-- .text-center -->
+                                    </div> <!-- .meet-item -->
+                                </div> <!-- .col-md-3 -->
                             @endif
-                        </div>
-                    </div>
-                @endforeach
+                        @elseif ( Config::get('app.locale') == 'vi' )
+                            @if($emp->locale == 'vi')
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="meet-item">
+                                        <img width="200px" height="200px" src="{{ $emp->image }}" alt="meet1">
+                                        <div class="text-center">
+                                            <h4>{!! $emp->name !!}</h4>
+                                            <p>{!! $emp->positon !!}</p>
+                                            {!! $emp->info !!}
+                                        </div> <!-- .text-center -->
+                                    </div> <!-- .meet-item -->
+                                </div> <!-- .col-md-3 -->
+                            @endif
+                        @endif
+                    @endforeach
+                </div>    <!-- row -->
+            </div>    <!-- .container -->
+        </div>    <!-- main_content -->
+        <!--</div>	 container -->
+    </section>    <!-- Meet -->
+
+
+    <section id="ScreenShot">
+        <div class="container">
+            <div class="row text-center heading">
+                <div class="wow animated zoomInDown heading-text">
+                    <h3>Screen Shots</h3>
+                    <hr class="full">
+                </div> <!-- #heading-text -->
             </div>
+            <div class="main_content">
+                <div class="container">
 
+                    <div class="col-xs-12">
+                        <div id="screenshots-wrap" class="owl-carousel owl-theme">
+                            <a href="front-end/img/screenShoot1.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot1.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+
+                            <a href="front-end/img/screenShoot2.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot2.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+                            <a href="front-end/img/screenShoot3.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot3.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+
+                            <a href="front-end/img/screenShoot4.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot4.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+                            <a href="front-end/img/screenShoot1.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot1.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+
+                            <a href="front-end/img/screenShoot2.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot2.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+                            <a href="front-end/img/screenShoot3.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot3.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+
+                            <a href="front-end/img/screenShoot4.png" class="item" data-lightbox-gallery="screenshots">
+                                <img src="front-end/img/screenShoot4.png" class="img_res wow animated zoomIn" alt="">
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>    <!-- row -->
+            </div>    <!-- .container -->
+        </div>    <!-- main_content -->
+        <!--</div>	 container -->
+    </section>    <!-- #ScreenShot -->
+
+
+    <!-- Download now -->
+    <section id="product">
+        <div class="container">
+            <div class="row text-center heading">
+                <div class="wow animated zoomInDown heading-text">
+                    <h3>{{ trans('header.product') }}</h3>
+                    <hr class="full">
+                </div> <!-- #heading-text -->
+            </div>
+            <div class="main-match">
+                <h3 style="text-align: center;">Gói Sản Phẩm Tháng 12 năm 2017</h3>
+                <table class="table table-customize table-responsive">
+                    <thead>
+                    <tr>
+                        <th rowspan="2">{{ trans('content.investment') }}</th>
+                        <th rowspan="2">{{ trans('content.product') }}</th>
+                        <th rowspan="2">{{ trans('content.interest_rate') }}</th>
+                        <th colspan="2">{{ trans('content.interest_out') }}</th>
+                        <th rowspan="2">{{ trans('content.option') }}</th>
+                    </tr>
+                    <tr>
+                        <th>{{ trans('content.investors') }}</th>
+                        <th>{{ trans('content.funds') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($product as $pro)
+                        @if ( Config::get('app.locale') == 'en')
+                            @if($pro->locale == 'en')
+                                <tr>
+                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                        @if(is_numeric($pro->interest_rate))
+                                            {{ $pro->interest_rate }} %
+                                        @else
+                                            {{ $pro->interest_rate }}
+                                        @endif
+                                    </td>
+                                    <td data-title="Dành cho NĐT" class="investors">
+                                        {{ $pro->investors }} %
+                                    </td>
+                                    <td data-title="Dành cho quỹ" class="funds">
+                                        {{ $pro->funds }} %
+                                    </td>
+                                    <td data-title="Lựa chọn" class="option">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                            {{ trans('content.buy') }}
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endif
+                        @elseif ( Config::get('app.locale') == 'vi' )
+                            @if($pro->locale == 'vi')
+                                <tr>
+                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                        @if(is_numeric($pro->interest_rate))
+                                            {{ $pro->interest_rate }} %
+                                        @else
+                                            {{ $pro->interest_rate }}
+                                        @endif
+                                    </td>
+                                    <td data-title="Dành cho NĐT" class="investors">
+                                        {{ $pro->investors }} %
+                                    </td>
+                                    <td data-title="Dành cho quỹ" class="funds">
+                                        {{ $pro->funds }} %
+                                    </td>
+                                    <td data-title="Lựa chọn" class="option">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                            {{ trans('content.buy') }}
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endif
+                        @endif
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </section><!-- #services -->
+        <!-- </div>	container -->
+    </section>    <!-- Product -->
 
-    <!--==========================
-    Call To Action Section
-    ============================-->
-    <section id="call-to-action">
-        <div class="container wow fadeIn">
-            <div class="row">
-                <div class="col-lg-9 text-center text-lg-left">
-                    <h3 class="cta-title">Call To Action</h3>
-                    <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum.</p>
-                </div>
-                <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" href="#">Call To Action</a>
+    <section id="testimonial">
+        <div class="container">
+            <div class="row text-center heading">
+                <div class="bg-image col-md-12">
+                    <div class="wow animated zoomInDown heading-text">
+                        <h3>Testimonials</h3>
+                        <hr class="full">
+                        <br/>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    </section><!-- #call-to-action -->
-
-    <!--==========================
-      Team Section
-    ============================-->
-    <section id="team">
-        <div class="container wow fadeInUp">
-            <div class="section-header">
-                <h3 class="section-title">Team</h3>
-                <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                    accusantium doloremque</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
+            <div class="row main_content">
+                <div class="col-md-10 col-md-offset-1">
+                    <div id="client-speech" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img class="img-circle img-responsive center-block" src="front-end/img/test1.png"
+                                 alt="text">
+                            <p class="client-comment text-center">
+                                When you form a team, why do you try to form a team? Because teamwork builds trust and
+                                trust builds speed.When you form a team, why do you try to form a team? Because teamwork
+                                builds trust and trust builds speed.
+                            </p>
+                            <div class="row text-center">
+                                <p class="client-name text-center"> ----- Noona Nuengthida Sophon</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-                        <h4>Sarah Jhinson</h4>
-                        <span>Product Manager</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
+                        <div class="item">
+                            <img class="img-circle img-responsive center-block" src="front-end/img/test2.png"
+                                 alt="text">
+                            <p class="client-comment text-center">
+                                When you form a team, why do you try to form a team? Because teamwork builds trust and
+                                trust builds speed.When you form a team, why do you try to form a team? Because teamwork
+                                builds trust and trust builds speed.
+                            </p>
+                            <div class="row text-center">
+                                <p class="client-name text-center"> ----- Noona Nuengthida Sophon</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-                        <h4>William Anderson</h4>
-                        <span>CTO</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
+                        <div class="item">
+                            <img class="img-circle img-responsive center-block" src="front-end/img/test3.png"
+                                 alt="text">
+                            <p class="client-comment text-center">
+                                When you form a team, why do you try to form a team? Because teamwork builds trust and
+                                trust builds speed.When you form a team, why do you try to form a team? Because teamwork
+                                builds trust and trust builds speed.
+                            </p>
+                            <div class="row text-center">
+                                <p class="client-name text-center"> ----- Noona Nuengthida Sophon</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </section><!-- #team -->
+    </section>    <!-- clients -->
 
-    <!--==========================
-      Contact Section
-    ============================-->
-    <!--FAQs
-====================================== -->
-    <div class="container">
-        <h2>Simple Collapsible</h2>
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-        <div id="demo" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-    </div>
+    <!-- Price-Table -->
+    <section id="price_table">
+        <div class="container">
+            <div class="row main_content">
+                <ul class="price-table-chart">
+                    <li class="text-center">
+                        <strong>NORMAL</strong>
+                        <span class="big">$100</span>
+                        <span class="price_table-pay">4 quarterly payments</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>
+                        <br>
+                        <a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>
+                    </li>
 
-    <!-- ===================FAQs End=================== -->
+                    <li class="text-center">
+                        <strong>PERSONAL</strong>
+                        <span class="big">$200</span>
+                        <span class="price_table-pay">4 quarterly payments</span>
+                        <hr class="full">
+                        <span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>
+                        <br>
+                        <a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>
 
+                    </li>
+
+                    <li class="text-center">
+                        <strong>EXTRA</strong>
+                        <span class="big">$300</span>
+                        <span class="price_table-pay">4 quarterly payments</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>
+                        <span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>
+                        <br>
+                        <a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>
+                    </li>
+                </ul>
+            </div>    <!-- row main_content -->
+        </div>    <!-- container -->
+    </section>    <!-- price_table -->
+
+    <!-- contact -->
     <section id="contact">
-        <div class="container wow fadeInUp">
-            <div class="section-header">
-                <h3 class="section-title">Contact</h3>
-                <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                    accusantium doloremque</p>
-            </div>
-        </div>
-
-        <div class="container wow fadeInUp">
-            <div class="row justify-content-center">
-
-                <div class="col-lg-3 col-md-4">
-
-                    <div class="info">
-                        <div>
-                            <i class="fa fa-map-marker"></i>
-                            <p>A108 Adam Street<br>New York, NY 535022</p>
-                        </div>
-
-                        <div>
-                            <i class="fa fa-envelope"></i>
-                            <p>info@example.com</p>
-                        </div>
-
-                        <div>
-                            <i class="fa fa-phone"></i>
-                            <p>+1 5589 55488 55s</p>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-5 col-md-8">
-                    <div class="form">
-                        <div id="sendmessage">Your message has been sent. Thank you!</div>
-                        <div id="errormessage"></div>
-                        <form action="" method="post" role="form" class="contactForm">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Your Email" data-rule="email"
-                                       data-msg="Please enter a valid email"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                       placeholder="Subject" data-rule="minlen:4"
-                                       data-msg="Please enter at least 8 chars of subject"/>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                          data-msg="Please write something for us" placeholder="Message"></textarea>
-                                <div class="validation"></div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit">Send Message</button>
-                            </div>
-                        </form>
+        <div class="container text-center">
+            <div class="row text-center">
+                <div class="bg-image">
+                    <div class="col-md-6 col-md-offset-3 text-center share-text wow animated zoomInDown heading-text">
+                        <p class="heading">
+                            If you got any questions, please do not hesitate to send us a message.
+                        </p>
                     </div>
                 </div>
-
             </div>
-
+            <div class="row text-center main_content">
+                <form method="post" action="#" class="">
+                    <div class="col-md-4 col-md-offset-2 text-center">
+                        <div class="form">
+                            <div class="input-group margin-bottom-sm">
+	  								<span class="input-group-addon">
+	  									<i class="fa fa-user fa-fw"></i>
+	  								</span>
+                                <input class="form-control" type="text" placeholder="Name" required>
+                            </div>
+                            <div class="input-group margin-bottom-sm">
+	  								<span class="input-group-addon">
+	  									<i class="fa fa-envelope-o fa-fw"></i>
+	  								</span>
+                                <input class="form-control" name="email" type="email" placeholder="Email address"
+                                       required>
+                            </div>
+                            <div class="input-group margin-bottom-sm">
+	  								<span class="input-group-addon">
+	  									<i class="fa fa-tags fa-fw"></i>
+	  								</span>
+                                <input class="form-control" type="text" placeholder="Subject">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="form">
+                            <div class="input-group margin-bottom-sm">
+									<span class="input-group-addon">
+										<i class="fa fa-comment-o fa-fw"></i>
+									</span>
+                                <input type="text" name="text" class="form-control message" placeholder="Your Message">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <input class="btn btn-sub" type="submit" value="Send Message">
         </div>
-    </section><!-- #contact -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- THIS LINE -->
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    </section>    <!-- contacts -->
 @endsection

@@ -26,8 +26,8 @@
                             <th>Tiêu để</th>
                             <th>Nội dung</th>
                             <th>Ngôn ngữ</th>
-                            <th>Icon</th>
-                            <th>Hành Động</th>
+                            <th>Hình ảnh</th>
+                            <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,8 +43,8 @@
                                 @else
                                     <td class="text-center">{{config('local.language.en')}}</td>
                                 @endif
-                                <td class="icon">
-                                    <i class="{!! $post->icon !!}"></i>
+                                <td>
+                                    <img src="{{$post->image}}" style="height: 75px;width: 75px;" />
                                 </td>
                                 <td>
                                     @if(Auth::user()->role == 'admin')

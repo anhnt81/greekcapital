@@ -14,8 +14,9 @@ return [
     */
 
     'about' => 'GIỚI THIỆU',
-    'road_map' => 'LỘ TRÌNH',
+    'product' => 'SẢN PHẨM',
     'our_team' => 'ĐỘI NGŨ',
     'media' => 'TRUYỀN THÔNG',
     'contact' => 'LIÊN HỆ',
+    'greek_capital' => 'Tại sạo nên chọn Greek Capital?',
 ];

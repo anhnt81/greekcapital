@@ -1,30 +1,33 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <title>Greek Capital</title>
+    <link rel="shortcut icon" href="front-end/img/greek-capital.png" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- css -->
+    <link rel="stylesheet" href="front-end/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="front-end/css/ionicons.min.css"> -->
+    <link rel="stylesheet" href="front-end/css/font-awesome.min.css">
+    <link rel="stylesheet" href="front-end/css/owl.carousel.css">
+    <link rel="stylesheet" href="front-end/css/owl.theme.css">
+    <link rel="stylesheet" href="front-end/css/owl.transitions.css">
+    <link rel="stylesheet" href="front-end/css/animate.css">
+    <link rel="stylesheet" href="front-end/js/nivo-lightbox/nivo-lightbox.css">
+    <link rel="stylesheet" href="front-end/js/nivo-lightbox/nivo-lightbox-theme.css">
+    <link rel="stylesheet" href="front-end/css/custom.css">
+    <!-- js -->
+    <script src="front-end/js/jquery.min.js"></script>
+    <script src="front-end/js/bootstrap.min.js"></script>
+    <script src="front-end/js/owl.carousel.min.js"></script>
+    <script src="front-end/js/wow.min.js"></script>
+    <script src="front-end/js/jquery.actual.min.js"></script>
+</head>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
-          rel="stylesheet">
-
-    <!-- Bootstrap CSS File -->
-    <link rel="stylesheet" href="{{ URL::asset('front-end/lib/bootstrap/css/bootstrap.min.css') }}"/>
-
-    <!-- Libraries CSS Files -->
-    <link rel="stylesheet" href="{{ URL::asset('front-end/lib/font-awesome/css/font-awesome.min.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('front-end/lib/animate/animate.min.css') }}"/>
-
-    <!-- Main Stylesheet File -->
-    <link rel="stylesheet" href="{{ URL::asset('front-end/css/style.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/collapse.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}"/>
     <!-- =======================================================
       Author: AnhNT
       License: https://bootstrapmade.com/license/
@@ -51,47 +54,46 @@
     </script>
     <!--End of Zendesk Chat Script-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar-example">
 @include('front-end.layouts.header')
-<!--==========================
-   Section
-============================-->
-@include('front-end.layouts.section')
 <!--==========================
    Content
 ============================-->
-<main id="main">
-    @yield('content')
-</main>
+@yield('content')
 <!--==========================
   Footer
 ============================-->
 @include('front-end.layouts.footer')
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- js -->
+<script>
+    new WOW().init();
+</script>
+<script>
+    $( function() {
+
+        // change is-checked class on buttons
+        $('.button-group').each( function( i, buttonGroup )
+        {
+            var $buttonGroup =$( buttonGroup );
+            $buttonGroup.on( 'click', 'button', function()
+            {
+                $buttonGroup.find('.is-checked').removeClass('is-checked');
+                $( this ).addClass('is-checked');
+            });
+        });
+
+    });
+</script>
+<script src="front-end/js/jquery-ui-1.10.3.min.js"></script>
+<script src="front-end/js/jquery.knob.js"></script>
+<script src="front-end/js/daterangepicker.js"></script>
+<script src="front-end/js/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="front-end/js/smoothscroll.js"></script>
+<script src="front-end/js/nivo-lightbox/nivo-lightbox.min.js"></script>
+<script src="front-end/js/script.js"></script>
+<script src="front-end/js/jquery.particleground.js"></script>
+<script src="front-end/js/particleground.js"></script>
+
 </body>
-
-<!-- JavaScript Libraries -->
-<script src="{{ URL::asset('front-end/lib/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/jquery/jquery.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/jquery/jquery-migrate.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/easing/easing.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/wow/wow.min.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
-
-<script src="{{ URL::asset('front-end/lib/waypoints/waypoints.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/counterup/counterup.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/superfish/hoverIntent.js') }}"></script>
-<script src="{{ URL::asset('front-end/lib/superfish/superfish.min.js') }}"></script>
-
-<!-- Contact Form JavaScript File -->
-<script src="{{ URL::asset('front-end/contactform/contactform.js') }}"></script>
-
-<!-- Template Main Javascript File -->
-<script src="{{ URL::asset('front-end/js/main.js') }}"></script>
-<script src="{{ URL::asset('front-end/js/collapse.js') }}"></script>
-<script src="{{ URL::asset('front-end/js/jquery.particleground.js') }}"></script>
-<script src="{{ URL::asset('front-end/js/jquery.particleground.min.js') }}"></script>
-<script src="{{ URL::asset('front-end/js/particleground.js') }}"></script>
-
 </html>

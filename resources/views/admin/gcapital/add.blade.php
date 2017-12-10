@@ -44,8 +44,8 @@
                     <textarea name="content" id="demo" class="form-control ckeditor" rows="3">{{ old('content')}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label>Icon</label>
-                    <input type="text" name="icon" id="icon" class="form-control" value="{{ old('icon')}}" placeholder="Nhập icon">
+                    <label for="recipient-name" class="control-label">Hình ảnh</label>
+                    <input type="file" name="img_post" class="form-control">
                 </div>
                 <button type="reset" class="btn btn-default">Làm Mới</button>
                 <button type="submit" class="btn btn-primary">Thêm</button>

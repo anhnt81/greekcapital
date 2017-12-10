@@ -40,7 +40,7 @@
                             <td class="text-center">
                                 {!! $product->name  !!}
                             </td>
-                            <td>{!! $product->category !!}</td>
+                            <td>{!! $product->cat_id !!}</td>
                             <td>{!! $product->interest_rate !!}</td>
                             <td>{!! $product->investors !!}</td>
                             <td>{!! $product->funds !!}</td>
@@ -51,7 +51,7 @@
                             @endif
                             <td>
                                 @if(Auth::user()->role == 'admin')
-                                    <a href="admin/employee/update/{{$product->id}}" class="btn btn-info btn-sm">
+                                    <a href="admin/product/update/{{$product->id}}" class="btn btn-info btn-sm">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa
                                     </a>
                                     <button data-id="{{$product->id}}" class="btn btn-danger btn-sm"

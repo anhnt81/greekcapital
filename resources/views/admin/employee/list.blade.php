@@ -59,7 +59,7 @@
                             @else
                                 <td class="text-center">{{config('local.language.en')}}</td>
                             @endif
-                            <td class="icon">
+                            <td>
                                 <img src="{{$employee->image}}" style="height: 75px;width: 75px;" />
                             </td>
                             <td>

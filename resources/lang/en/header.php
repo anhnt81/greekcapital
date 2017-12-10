@@ -15,7 +15,9 @@ return [
 
     'about' => 'ABOUT',
     'our_team' => 'OUR TEAM',
-    'road_map' => 'ROAD MAP',
+    'product' => 'PRODUCT',
     'media' => 'MEDIA',
     'contact' => 'CONTACT',
+    'greek_capital' => 'Why trades with Greek Capital?',
+
 ];

@@ -33,7 +33,21 @@ class GcapitalController extends Controller
         $locale = $request->input('locale');
         $locale == 1 ? $post->locale = 'vi' : "";
         $locale == 2 ? $post->locale = 'en' : "";
-        $post->icon = $request->input('icon');
+        //Upload Image
+        if ($request->hasFile('img_post')) {
+            $file = $request->file('img_post');
+            $file_extension = $file->getClientOriginalExtension(); // Lấy đuôi của file
+            if ($file_extension == 'png' || $file_extension == 'jpg' || $file_extension == 'jpeg') {
+                $file_name = $file->getClientOriginalName();
+                $random_file_name = str_random(4) . '_' . $file_name;
+                while (file_exists('upload/posts/' . $random_file_name)) {
+                    $random_file_name = str_random(4) . '_' . $file_name;
+                }
+                $file->move('upload/posts', $random_file_name);
+                $post->image = 'upload/posts/' . $random_file_name;
+            } else return redirect()->back()->with('errfile', 'Chưa hỗ trợ định dạng file vừa upload.')->withInput();
+
+        } else $post->image = '';
         $post->save();
         Session::flash('flash_success', 'Thêm tin tức thành công.');
         return redirect()->route('list-post');
@@ -66,7 +80,26 @@ class GcapitalController extends Controller
                 $locale = $request->input('locale');
                 $locale == 1 ? $post->locale = 'vi' : "";
                 $locale == 2 ? $post->locale = 'en' : "";
-                $post->icon = $request->input('icon');
+                //Upload Image
+                if ($request->hasFile('img_post')) {
+                    if(file_exists($post->image)){
+                        unlink($post->image);
+                    }
+                    $file = $request->file('img_post');
+                    $file_extension = $file->getClientOriginalExtension(); // Lấy đuôi của file
+                    if ($file_extension == 'png' || $file_extension == 'jpg' || $file_extension == 'jpeg') {
+                        $file_name = $file->getClientOriginalName();
+                        $random_file_name = str_random(4) . '_' . $file_name;
+                        while (file_exists('upload/posts/' . $random_file_name)) {
+                            $random_file_name = str_random(4) . '_' . $file_name;
+                        }
+                        $file->move('upload/posts', $random_file_name);
+                        $post->image = 'upload/posts/' . $random_file_name;
+                    } else return redirect()->back()->with('errfile', 'Chưa hỗ trợ định dạng file vừa upload.')->withInput();
+
+                } else{
+                    $post->image = $post->image;
+                }
                 $post->save();
                 Session::flash('flash_success', 'Thay đổi thành công.');
                 return redirect()->route('list-post');
