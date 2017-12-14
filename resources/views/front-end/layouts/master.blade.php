@@ -11,7 +11,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- css -->
     <link rel="stylesheet" href="front-end/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="front-end/css/ionicons.min.css"> -->
     <link rel="stylesheet" href="front-end/css/font-awesome.min.css">
     <link rel="stylesheet" href="front-end/css/owl.carousel.css">
     <link rel="stylesheet" href="front-end/css/owl.theme.css">
@@ -26,12 +25,6 @@
     <script src="front-end/js/owl.carousel.min.js"></script>
     <script src="front-end/js/wow.min.js"></script>
     <script src="front-end/js/jquery.actual.min.js"></script>
-</head>
-
-    <!-- =======================================================
-      Author: AnhNT
-      License: https://bootstrapmade.com/license/
-    ======================================================= -->
     <!--Start of Zendesk Chat Script-->
     <script type="text/javascript">
         window.$zopim || (function (d, s) {
@@ -54,8 +47,13 @@
     </script>
     <!--End of Zendesk Chat Script-->
 </head>
-<body data-spy="scroll" data-target="#navbar-example">
-@include('front-end.layouts.header')
+    <!-- =======================================================
+      Author: AnhNT
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+
+<body>
+{{--@include('front-end.layouts.header')--}}
 <!--==========================
    Content
 ============================-->
@@ -66,9 +64,9 @@
 @include('front-end.layouts.footer')
 
 <!-- js -->
-<script>
-    new WOW().init();
-</script>
+{{--<script>--}}
+    {{--new WOW().init();--}}
+{{--</script>--}}
 <script>
     $( function() {
 

@@ -1,5 +1,79 @@
 @extends('front-end.layouts.master')
 @section('content')
+    <div id="preloader"></div>
+
+    <div id="wrapper">
+        <div id="overlay-1">
+            <section id="navigation-scroll">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-example">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand" href="#">Greek Capital</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="navbar-example">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#about" class="active">{{ trans('header.about') }}</a></li>
+                                <li><a href="#Meet">{{ trans('header.our_team') }}</a></li>
+                                <li><a href="#product">{{ trans('header.product') }}</a></li>
+                                <li><a href="#faqs">FAQs</a></li>
+                                <li><a href="#ScreenShot">Screen</a></li>
+                            {{--<li><a href="#download">Download</a></li>--}}
+                            <!-- <li><a href="#price_table">Price Table</a></li> -->
+                                <li><a href="#contact">Contact</a></li>
+                                @if ( Config::get('app.locale') == 'en')
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">English<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{route('home')}}">English</a></li>
+                                            <li><a href="{{URL::asset('')}}vi">Tiếng Việt</a></li>
+                                        </ul>
+                                    </li>
+                                @elseif ( Config::get('app.locale') == 'vi' )
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tiếng Việt<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{URL::asset('')}}">English</a></li>
+                                            <li><a href="{{route('home')}}">Tiếng Việt</a></li>
+                                        </ul>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>	<!-- navbar -->
+            </section>	<!-- #navigation -->
+
+            <section id="particles">
+                <div id="intro">
+                    <div class="text-center starting-text wow animated zoomInDown">
+                        <h2>Welcome to A-Z Application Service</h2>
+                        <h1 class="rene">Greek Capital</h1>
+                        {{--<a href="#" class="bttn apple-store btn btn-lg">--}}
+                        {{--<img src="front-end/img/apple.png" alt="apple">--}}
+                        {{--<p>DOWNLOAD FROM</p>--}}
+                        {{--<h6>APPLE STORE</h6>--}}
+                        {{--</a>--}}
+                        {{--<a href="#" class="bttn google-play btn btn-lg">--}}
+                        {{--<img src="front-end/img/play.png" alt="play">--}}
+                        {{--<p>DOWNLOAD FROM</p>--}}
+                        {{--<h6>GOOGLE PLAY</h6>--}}
+                        {{--</a>--}}
+                    </div>
+                </div>
+            </section>
+            <div id="bottom" class="bottom text-center">
+                <a href="#about"><i class="ion-ios7-arrow-down"></i></a>
+            </div>
+        </div><!-- overlay-1 -->
+    </div>	<!-- wrapper -->
+
     <!-- About Us -->
     <section id="about">
         <div class="container">
@@ -12,36 +86,34 @@
             </div>    <!-- row -->
             <div class="row about-us-text">
                 <div class="col-md-12">
-                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p class="text-center">Đây là 1 công ty rất nhiều tiềm năng phát triển.Greek Capital </p>
                 </div>
             </div>    <!-- row -->
-            <div class="row main_content">
-                <div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">
-                    <figure>
-                        <img class="pro img-responsive center-block" src="front-end/img/3-col-icons-web.png"
-                             alt="image">
-                    </figure>
-                    <h5 class="text-center">RESPONSIVE</h5>
-                </div>    <!-- col-md-4 -->
+            {{--<div class="row main_content">--}}
+            {{--<div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">--}}
+            {{--<figure>--}}
+            {{--<img class="pro img-responsive center-block" src="front-end/img/3-col-icons-web.png"--}}
+            {{--alt="image">--}}
+            {{--</figure>--}}
+            {{--<h5 class="text-center">RESPONSIVE</h5>--}}
+            {{--</div>    <!-- col-md-4 -->--}}
 
-                <div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">
-                    <figure>
-                        <img class="pro img-responsive center-block" src="front-end/img/3-col-icons-android.png"
-                             alt="image">
-                    </figure>
-                    <h5 class="text-center">ANDROID</h5>
-                </div>    <!-- col-md-4 -->
+            {{--<div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">--}}
+            {{--<figure>--}}
+            {{--<img class="pro img-responsive center-block" src="front-end/img/3-col-icons-android.png"--}}
+            {{--alt="image">--}}
+            {{--</figure>--}}
+            {{--<h5 class="text-center">ANDROID</h5>--}}
+            {{--</div>    <!-- col-md-4 -->--}}
 
-                <div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">
-                    <figure>
-                        <img class="pro img-responsive center-block" src="front-end/img/3-col-icons-iphone.png"
-                             alt="image">
-                    </figure>
-                    <h5 class="text-center">iOS</h5>
-                </div>    <!-- col-md-4 -->
-            </div><!-- row main_content -->
+            {{--<div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">--}}
+            {{--<figure>--}}
+            {{--<img class="pro img-responsive center-block" src="front-end/img/3-col-icons-iphone.png"--}}
+            {{--alt="image">--}}
+            {{--</figure>--}}
+            {{--<h5 class="text-center">iOS</h5>--}}
+            {{--</div>    <!-- col-md-4 -->--}}
+            {{--</div><!-- row main_content -->--}}
         </div>    <!-- container -->
     </section>    <!-- about us -->
 
@@ -208,7 +280,6 @@
                         <th rowspan="2">{{ trans('content.product') }}</th>
                         <th rowspan="2">{{ trans('content.interest_rate') }}</th>
                         <th colspan="2">{{ trans('content.interest_out') }}</th>
-                        <th rowspan="2">{{ trans('content.option') }}</th>
                     </tr>
                     <tr>
                         <th>{{ trans('content.investors') }}</th>
@@ -216,61 +287,83 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($product as $pro)
-                        @if ( Config::get('app.locale') == 'en')
-                            @if($pro->locale == 'en')
-                                <tr>
-                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                        @if(is_numeric($pro->interest_rate))
-                                            {{ $pro->interest_rate }} %
-                                        @else
-                                            {{ $pro->interest_rate }}
-                                        @endif
-                                    </td>
-                                    <td data-title="Dành cho NĐT" class="investors">
-                                        {{ $pro->investors }} %
-                                    </td>
-                                    <td data-title="Dành cho quỹ" class="funds">
-                                        {{ $pro->funds }} %
-                                    </td>
-                                    <td data-title="Lựa chọn" class="option">
-                                        <button class="btn btn-danger">
-                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            {{ trans('content.buy') }}
-                                        </button>
-                                    </td>
-                                </tr>
+                    {{--@foreach($list_cat as $cat)--}}
+                        {{--@if ( Config::get('app.locale') == 'en')--}}
+                            {{--@if($cat->locale == 'en')--}}
+                                {{--<tr>--}}
+                                    {{--<td data-title="Mức đầu tư" class="category"--}}
+                                        {{--rowspan="">{{$cat->name}}</td>--}}
+                                {{--</tr>--}}
+                            {{--@endif--}}
+                        {{--@elseif ( Config::get('app.locale') == 'vi' )--}}
+                            {{--@if($cat->locale == 'vi')--}}
+                                {{--<tr>--}}
+                                    {{--<td data-title="Mức đầu tư" class="category"--}}
+                                        {{--rowspan="">{{$cat->name}}</td>--}}
+                                {{--</tr>--}}
+                            {{--@endif--}}
+                        {{--@endif--}}
+                        @foreach($product as $pro)
+                            @if ( Config::get('app.locale') == 'en')
+                                @if($pro->locale == 'en')
+                                    <tr>
+                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                            @if(is_numeric($pro->interest_rate))
+                                                {{ $pro->interest_rate }} %
+                                            @else
+                                                {{ $pro->interest_rate }}
+                                            @endif
+                                        </td>
+                                        <td data-title="Dành cho NĐT" class="investors">
+                                            {{ $pro->investors }} %
+                                        </td>
+                                        <td data-title="Dành cho quỹ" class="funds">
+                                            {{ $pro->funds }} %
+                                        </td>
+                                        {{--<td data-title="Lựa chọn" class="option">--}}
+                                            {{--<button class="btn btn-danger">--}}
+                                                {{--<i class="fa fa-cart-plus" aria-hidden="true"></i>--}}
+                                                {{--{{ trans('content.buy') }}--}}
+                                            {{--</button>--}}
+                                        {{--</td>--}}
+                                    </tr>
+                                @endif
+                            @elseif ( Config::get('app.locale') == 'vi' )
+                                @if($pro->locale == 'vi')
+                                    <tr>
+                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                            @if(is_numeric($pro->interest_rate))
+                                                {{ $pro->interest_rate }} %
+                                            @else
+                                                {{ $pro->interest_rate }}
+                                            @endif
+                                        </td>
+                                        <td data-title="Dành cho NĐT" class="investors">
+                                            {{ $pro->investors }} %
+                                        </td>
+                                        <td data-title="Dành cho quỹ" class="funds">
+                                            {{ $pro->funds }} %
+                                        </td>
+                                    </tr>
+                                @endif
                             @endif
-                        @elseif ( Config::get('app.locale') == 'vi' )
-                            @if($pro->locale == 'vi')
-                                <tr>
-                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                        @if(is_numeric($pro->interest_rate))
-                                            {{ $pro->interest_rate }} %
-                                        @else
-                                            {{ $pro->interest_rate }}
-                                        @endif
-                                    </td>
-                                    <td data-title="Dành cho NĐT" class="investors">
-                                        {{ $pro->investors }} %
-                                    </td>
-                                    <td data-title="Dành cho quỹ" class="funds">
-                                        {{ $pro->funds }} %
-                                    </td>
-                                    <td data-title="Lựa chọn" class="option">
-                                        <button class="btn btn-danger">
-                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            {{ trans('content.buy') }}
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endif
-                        @endif
-                    @endforeach
+                        @endforeach
+                    <tr>
+                        <td colspan="5" data-title="Lựa chọn" class="option">
+                            <a href="{{route('product')}}"><button class="btn btn-danger">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                {{ trans('content.buy') }}
+                                </button></a>
+                            <a href=""><button class="btn btn-danger">
+                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    {{ trans('content.buy') }}
+                                </button></a>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -278,111 +371,135 @@
         <!-- </div>	container -->
     </section>    <!-- Product -->
 
-    <section id="testimonial">
+    <!--FAQs
+====================================== -->
+    <section class="faq-accordion" id="faqs">
         <div class="container">
             <div class="row text-center heading">
-                <div class="bg-image col-md-12">
-                    <div class="wow animated zoomInDown heading-text">
-                        <h3>Testimonials</h3>
-                        <hr class="full">
-                        <br/>
-                    </div>
-                </div>
+                <div class="wow animated zoomInDown heading-text">
+                    <h3>{{ trans('content.faqs') }}</h3>
+                    <hr class="full">
+                </div> <!-- #heading-text -->
             </div>
-            <div class="row main_content">
-                <div class="col-md-10 col-md-offset-1">
-                    <div id="client-speech" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <img class="img-circle img-responsive center-block" src="front-end/img/test1.png"
-                                 alt="text">
-                            <p class="client-comment text-center">
-                                When you form a team, why do you try to form a team? Because teamwork builds trust and
-                                trust builds speed.When you form a team, why do you try to form a team? Because teamwork
-                                builds trust and trust builds speed.
-                            </p>
-                            <div class="row text-center">
-                                <p class="client-name text-center"> ----- Noona Nuengthida Sophon</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="img-circle img-responsive center-block" src="front-end/img/test2.png"
-                                 alt="text">
-                            <p class="client-comment text-center">
-                                When you form a team, why do you try to form a team? Because teamwork builds trust and
-                                trust builds speed.When you form a team, why do you try to form a team? Because teamwork
-                                builds trust and trust builds speed.
-                            </p>
-                            <div class="row text-center">
-                                <p class="client-name text-center"> ----- Noona Nuengthida Sophon</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="img-circle img-responsive center-block" src="front-end/img/test3.png"
-                                 alt="text">
-                            <p class="client-comment text-center">
-                                When you form a team, why do you try to form a team? Because teamwork builds trust and
-                                trust builds speed.When you form a team, why do you try to form a team? Because teamwork
-                                builds trust and trust builds speed.
-                            </p>
-                            <div class="row text-center">
-                                <p class="client-name text-center"> ----- Noona Nuengthida Sophon</p>
-                            </div>
-                        </div>
+            <div class="row">
+                    <div class="col-sm-6">
+                        @foreach($quest_answer as $faqs)
+                            @if($faqs->id % 2 != 0)
+                                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
+                                            <h4 class="panel-title">
+                                                <a id="faqs_{{$faqs->id}}" class="collapsed" data-toggle="collapse" data-parent="#accordion-1"
+                                                   href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    {!! $faqs->quest !!}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="answer_{{$faqs->id}}" class="panel-collapse collapse" role="tabpanel"
+                                             aria-labelledby="headingOne" aria-expanded="false">
+                                            <div class="panel-body">
+                                                {!! $faqs->answer !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        <!-- end left accordion // .panel-group -->
+                        @endforeach
                     </div>
-                </div>
+                    <div class="col-sm-6">
+                        @foreach($quest_answer as $faqs)
+                            @if($faqs->id % 2 == 0)
+                                <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
+                                            <h4 class="panel-title">
+                                                <a id="faqs_{{$faqs->id}}" class="collapsed" data-toggle="collapse" data-parent="#accordion-1"
+                                                   href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    {!! $faqs->quest !!}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="answer_{{$faqs->id}}" class="panel-collapse collapse" role="tabpanel"
+                                             aria-labelledby="headingOne" aria-expanded="false">
+                                            <div class="panel-body">
+                                                {!! $faqs->answer !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        <!-- end left accordion // .panel-group -->
+                        @endforeach
+                    </div>
             </div>
         </div>
-    </section>    <!-- clients -->
+    </section>
+    @foreach($quest_answer as $faqs)
+    <script>
+        $(document).ready(function () {
+            $("#faqs_{{$faqs->id}}").on("click", function () {
+                {{--$("#heading-{{$faqs->id}}").css('color','#10a784');--}}
+                if ($("#answer_{{$faqs->id}}").css('display') == 'none') {
+                    $("#answer_{{$faqs->id}}").show();
+                } else {
+                    $("#answer_{{$faqs->id}}").hide();
+                    {{--$("#heading-{{$faqs->id}}").css('color','#333');--}}
+                }
+            });
+        });
+    </script>
+    @endforeach
 
-    <!-- Price-Table -->
-    <section id="price_table">
-        <div class="container">
-            <div class="row main_content">
-                <ul class="price-table-chart">
-                    <li class="text-center">
-                        <strong>NORMAL</strong>
-                        <span class="big">$100</span>
-                        <span class="price_table-pay">4 quarterly payments</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>
-                        <br>
-                        <a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>
-                    </li>
+    {{--<!-- Price-Table -->--}}
+    {{--<section id="price_table">--}}
+    {{--<div class="container">--}}
+    {{--<div class="row main_content">--}}
+    {{--<ul class="price-table-chart">--}}
+    {{--<li class="text-center">--}}
+    {{--<strong>NORMAL</strong>--}}
+    {{--<span class="big">$100</span>--}}
+    {{--<span class="price_table-pay">4 quarterly payments</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>--}}
+    {{--<br>--}}
+    {{--<a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>--}}
+    {{--</li>--}}
 
-                    <li class="text-center">
-                        <strong>PERSONAL</strong>
-                        <span class="big">$200</span>
-                        <span class="price_table-pay">4 quarterly payments</span>
-                        <hr class="full">
-                        <span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>
-                        <br>
-                        <a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>
+    {{--<li class="text-center">--}}
+    {{--<strong>PERSONAL</strong>--}}
+    {{--<span class="big">$200</span>--}}
+    {{--<span class="price_table-pay">4 quarterly payments</span>--}}
+    {{--<hr class="full">--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>--}}
+    {{--<br>--}}
+    {{--<a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>--}}
 
-                    </li>
+    {{--</li>--}}
 
-                    <li class="text-center">
-                        <strong>EXTRA</strong>
-                        <span class="big">$300</span>
-                        <span class="price_table-pay">4 quarterly payments</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>
-                        <span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>
-                        <br>
-                        <a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>
-                    </li>
-                </ul>
-            </div>    <!-- row main_content -->
-        </div>    <!-- container -->
-    </section>    <!-- price_table -->
+    {{--<li class="text-center">--}}
+    {{--<strong>EXTRA</strong>--}}
+    {{--<span class="big">$300</span>--}}
+    {{--<span class="price_table-pay">4 quarterly payments</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>--}}
+    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>--}}
+    {{--<br>--}}
+    {{--<a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>--}}
+    {{--</li>--}}
+    {{--</ul>--}}
+    {{--</div>    <!-- row main_content -->--}}
+    {{--</div>    <!-- container -->--}}
+    {{--</section>    <!-- price_table -->--}}
 
     <!-- contact -->
     <section id="contact">

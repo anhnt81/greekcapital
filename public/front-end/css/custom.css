@@ -484,20 +484,20 @@ input[type="submit"]{
     text-transform: uppercase;
 }
 /*------------------------------------------------------------------------------------------------------
-                                Testimonial
+                                faqs
 --------------------------------------------------------------------------------------------------------*/
-#testimonial{
+#faqs{
     background: url(../img/test-bn.png);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    color: white;
+    color: black;
     padding: 60px 0;
 }
-#testimonial h3{
+#faqs h3{
     color: white;
 }
-#testimonial hr{
+#faqs hr{
     border-color: white;
 }
 .item img{
@@ -1242,4 +1242,59 @@ section#product {
     .main-match .category{
         align-items: flex-start;
     }
+}
+/*
+   Collapsible Panels
+   ------------------ */
+
+.panel-group .panel {
+    box-shadow: inherit;
+    border-width: 1px;
+    margin-bottom: 20px;
+    border-color: #f7f7f7;
+}
+
+.panel-default > .panel-heading {
+    background: transparent;
+    padding: 0;
+}
+
+.panel-title {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.panel-title > a {
+    display: block;
+    position: relative;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.panel-title > a:hover,
+.panel-title > a:focus {
+    color: #10a784;
+    text-decoration: none;
+}
+
+.panel-title > a:focus {
+    outline: inherit;
+}
+
+.panel-title > a:before {
+    background: url("../img/collapse.png") no-repeat 0 -2px;
+    content: "";
+    display: block;
+    height: 14px;
+    position: absolute;
+    right: 14px;
+    width: 14px;
+}
+
+a.collapsed:before {
+    background-position: 0 -33px;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-color: #f7f7f7;
 }

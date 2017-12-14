@@ -1,6 +1,5 @@
 <div id="preloader"></div>
 
-
 <div id="wrapper">
     <div id="overlay-1">
         <section id="navigation-scroll">
@@ -12,7 +11,7 @@
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#">Rain</a>
+                        <a class="navbar-brand" href="#">Greek Capital</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,9 +20,9 @@
                             <li><a href="#about" class="active">{{ trans('header.about') }}</a></li>
                             <li><a href="#Meet">{{ trans('header.our_team') }}</a></li>
                             <li><a href="#product">{{ trans('header.product') }}</a></li>
+                            <li><a href="#faqs">FAQs</a></li>
                             <li><a href="#ScreenShot">Screen</a></li>
-                            <li><a href="#testimonial">Testimonials</a></li>
-                            <li><a href="#download">Download</a></li>
+                        {{--<li><a href="#download">Download</a></li>--}}
                             <!-- <li><a href="#price_table">Price Table</a></li> -->
                             <li><a href="#contact">Contact</a></li>
                             @if ( Config::get('app.locale') == 'en')
@@ -54,16 +53,16 @@
                     <div class="text-center starting-text wow animated zoomInDown">
                         <h2>Welcome to A-Z Application Service</h2>
                         <h1 class="rene">Greek Capital</h1>
-                        <a href="#" class="bttn apple-store btn btn-lg">
-                            <img src="front-end/img/apple.png" alt="apple">
-                            <p>DOWNLOAD FROM</p>
-                            <h6>APPLE STORE</h6>
-                        </a>
-                        <a href="#" class="bttn google-play btn btn-lg">
-                            <img src="front-end/img/play.png" alt="play">
-                            <p>DOWNLOAD FROM</p>
-                            <h6>GOOGLE PLAY</h6>
-                        </a>
+                        {{--<a href="#" class="bttn apple-store btn btn-lg">--}}
+                            {{--<img src="front-end/img/apple.png" alt="apple">--}}
+                            {{--<p>DOWNLOAD FROM</p>--}}
+                            {{--<h6>APPLE STORE</h6>--}}
+                        {{--</a>--}}
+                        {{--<a href="#" class="bttn google-play btn btn-lg">--}}
+                            {{--<img src="front-end/img/play.png" alt="play">--}}
+                            {{--<p>DOWNLOAD FROM</p>--}}
+                            {{--<h6>GOOGLE PLAY</h6>--}}
+                        {{--</a>--}}
                     </div>
             </div>
         </section>

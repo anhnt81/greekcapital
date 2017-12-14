@@ -40,7 +40,7 @@
                             <td class="text-center">
                                 {!! $product->name  !!}
                             </td>
-                            <td>{!! $product->cat_id !!}</td>
+                            <td>{!! $product->cat_name !!}</td>
                             <td>{!! $product->interest_rate !!}</td>
                             <td>{!! $product->investors !!}</td>
                             <td>{!! $product->funds !!}</td>

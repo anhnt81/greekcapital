@@ -84,4 +84,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 /* Front-end */
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/product', ['as' => 'product', 'uses' => 'HomeController@getProduct']);
 Route::get('/{lang?}', ['as' => 'lang', 'uses' => 'HomeController@getLanguage']);

@@ -21,5 +21,6 @@ return [
     'investors' => 'For investors',
     'funds' => 'For the Fund',
     'option' => 'Option',
+    'faqs' => 'FAQs',
 
 ];

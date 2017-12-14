@@ -21,6 +21,7 @@ return [
     'investors' => 'Dành cho NĐT',
     'funds' => 'Dành cho Quỹ',
     'option' => 'Lựa chọn',
+    'faqs' => 'FAQs',
 
 
 ];
