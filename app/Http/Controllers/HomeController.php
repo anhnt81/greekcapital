@@ -37,7 +37,7 @@ class HomeController extends Controller
             ->where('category.exception','0')
             ->get()->toArray();
 
-        return view('front-end.index',compact('gcapital','employee','product','quest_answer','category','_count_cat','list_cat'));
+        return view('front-end.index',compact('gcapital','employee','product','quest_answer','category','list_cat'));
 
     }
 
@@ -55,7 +55,15 @@ class HomeController extends Controller
         $employee = Employee::all();
         $gcapital = Gcapital::all();
         $product = Product::all();
-        return view('front-end.index',compact('gcapital','employee','product'));
+        $quest_answer = Faqs::all();
+        $list_cat = DB::table('category')
+            ->where('category.exception','0')
+            ->get()->toArray();
+        $category = DB::table('category')
+            ->where('category.locale','vi')
+            ->where('category.exception','0')
+            ->get()->toArray();
+        return view('front-end.index',compact('gcapital','employee','product','quest_answer','category','list_cat'));
     }
 
     public function getProduct(){

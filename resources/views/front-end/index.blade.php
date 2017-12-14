@@ -9,11 +9,18 @@
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-example">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#navbar-example">
                                 <span class="sr-only">Toggle navigation</span>
                                 <i class="fa fa-bars"></i>
                             </button>
-                            <a class="navbar-brand" href="#">Greek Capital</a>
+
+                            <img style="float: left;padding-right: 5px;" height="50" width="50"
+                                 src="front-end/img/greek-capital.png"
+                                 alt="Greek Capital"/>
+                            <a class="navbar-brand" href="#">
+                                Greek Capital
+                            </a>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,12 +31,11 @@
                                 <li><a href="#product">{{ trans('header.product') }}</a></li>
                                 <li><a href="#faqs">FAQs</a></li>
                                 <li><a href="#ScreenShot">Screen</a></li>
-                            {{--<li><a href="#download">Download</a></li>--}}
-                            <!-- <li><a href="#price_table">Price Table</a></li> -->
                                 <li><a href="#contact">Contact</a></li>
                                 @if ( Config::get('app.locale') == 'en')
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">English<span class="caret"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-haspopup="true" aria-expanded="false">English<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="{{route('home')}}">English</a></li>
                                             <li><a href="{{URL::asset('')}}vi">Tiếng Việt</a></li>
@@ -37,7 +43,9 @@
                                     </li>
                                 @elseif ( Config::get('app.locale') == 'vi' )
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tiếng Việt<span class="caret"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-haspopup="true" aria-expanded="false">Tiếng Việt<span
+                                                    class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="{{URL::asset('')}}">English</a></li>
                                             <li><a href="{{route('home')}}">Tiếng Việt</a></li>
@@ -47,24 +55,15 @@
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
-                </nav>	<!-- navbar -->
-            </section>	<!-- #navigation -->
+                </nav>    <!-- navbar -->
+            </section>    <!-- #navigation -->
 
             <section id="particles">
                 <div id="intro">
                     <div class="text-center starting-text wow animated zoomInDown">
-                        <h2>Welcome to A-Z Application Service</h2>
+                        <h2>Welcome to Investment Securities</h2>
                         <h1 class="rene">Greek Capital</h1>
-                        {{--<a href="#" class="bttn apple-store btn btn-lg">--}}
-                        {{--<img src="front-end/img/apple.png" alt="apple">--}}
-                        {{--<p>DOWNLOAD FROM</p>--}}
-                        {{--<h6>APPLE STORE</h6>--}}
-                        {{--</a>--}}
-                        {{--<a href="#" class="bttn google-play btn btn-lg">--}}
-                        {{--<img src="front-end/img/play.png" alt="play">--}}
-                        {{--<p>DOWNLOAD FROM</p>--}}
-                        {{--<h6>GOOGLE PLAY</h6>--}}
-                        {{--</a>--}}
+                        <p><a href="#about" class="btn btn-primary btn-lg" href="#" role="button">Download</a></p>
                     </div>
                 </div>
             </section>
@@ -72,7 +71,7 @@
                 <a href="#about"><i class="ion-ios7-arrow-down"></i></a>
             </div>
         </div><!-- overlay-1 -->
-    </div>	<!-- wrapper -->
+    </div>    <!-- wrapper -->
 
     <!-- About Us -->
     <section id="about">
@@ -89,31 +88,6 @@
                     <p class="text-center">Đây là 1 công ty rất nhiều tiềm năng phát triển.Greek Capital </p>
                 </div>
             </div>    <!-- row -->
-            {{--<div class="row main_content">--}}
-            {{--<div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">--}}
-            {{--<figure>--}}
-            {{--<img class="pro img-responsive center-block" src="front-end/img/3-col-icons-web.png"--}}
-            {{--alt="image">--}}
-            {{--</figure>--}}
-            {{--<h5 class="text-center">RESPONSIVE</h5>--}}
-            {{--</div>    <!-- col-md-4 -->--}}
-
-            {{--<div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">--}}
-            {{--<figure>--}}
-            {{--<img class="pro img-responsive center-block" src="front-end/img/3-col-icons-android.png"--}}
-            {{--alt="image">--}}
-            {{--</figure>--}}
-            {{--<h5 class="text-center">ANDROID</h5>--}}
-            {{--</div>    <!-- col-md-4 -->--}}
-
-            {{--<div class="col-md-4 col-sm-4 wow animated zoomIn" data-wow-delay="0.1s">--}}
-            {{--<figure>--}}
-            {{--<img class="pro img-responsive center-block" src="front-end/img/3-col-icons-iphone.png"--}}
-            {{--alt="image">--}}
-            {{--</figure>--}}
-            {{--<h5 class="text-center">iOS</h5>--}}
-            {{--</div>    <!-- col-md-4 -->--}}
-            {{--</div><!-- row main_content -->--}}
         </div>    <!-- container -->
     </section>    <!-- about us -->
 
@@ -288,80 +262,78 @@
                     </thead>
                     <tbody>
                     {{--@foreach($list_cat as $cat)--}}
-                        {{--@if ( Config::get('app.locale') == 'en')--}}
-                            {{--@if($cat->locale == 'en')--}}
-                                {{--<tr>--}}
-                                    {{--<td data-title="Mức đầu tư" class="category"--}}
-                                        {{--rowspan="">{{$cat->name}}</td>--}}
-                                {{--</tr>--}}
-                            {{--@endif--}}
-                        {{--@elseif ( Config::get('app.locale') == 'vi' )--}}
-                            {{--@if($cat->locale == 'vi')--}}
-                                {{--<tr>--}}
-                                    {{--<td data-title="Mức đầu tư" class="category"--}}
-                                        {{--rowspan="">{{$cat->name}}</td>--}}
-                                {{--</tr>--}}
-                            {{--@endif--}}
-                        {{--@endif--}}
-                        @foreach($product as $pro)
-                            @if ( Config::get('app.locale') == 'en')
-                                @if($pro->locale == 'en')
-                                    <tr>
-                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                            @if(is_numeric($pro->interest_rate))
-                                                {{ $pro->interest_rate }} %
-                                            @else
-                                                {{ $pro->interest_rate }}
-                                            @endif
-                                        </td>
-                                        <td data-title="Dành cho NĐT" class="investors">
-                                            {{ $pro->investors }} %
-                                        </td>
-                                        <td data-title="Dành cho quỹ" class="funds">
-                                            {{ $pro->funds }} %
-                                        </td>
-                                        {{--<td data-title="Lựa chọn" class="option">--}}
-                                            {{--<button class="btn btn-danger">--}}
-                                                {{--<i class="fa fa-cart-plus" aria-hidden="true"></i>--}}
-                                                {{--{{ trans('content.buy') }}--}}
-                                            {{--</button>--}}
-                                        {{--</td>--}}
-                                    </tr>
-                                @endif
-                            @elseif ( Config::get('app.locale') == 'vi' )
-                                @if($pro->locale == 'vi')
-                                    <tr>
-                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                            @if(is_numeric($pro->interest_rate))
-                                                {{ $pro->interest_rate }} %
-                                            @else
-                                                {{ $pro->interest_rate }}
-                                            @endif
-                                        </td>
-                                        <td data-title="Dành cho NĐT" class="investors">
-                                            {{ $pro->investors }} %
-                                        </td>
-                                        <td data-title="Dành cho quỹ" class="funds">
-                                            {{ $pro->funds }} %
-                                        </td>
-                                    </tr>
-                                @endif
+                    {{--@if ( Config::get('app.locale') == 'en')--}}
+                    {{--@if($cat->locale == 'en')--}}
+                    {{--<tr>--}}
+                    {{--<td data-title="Mức đầu tư" class="category"--}}
+                    {{--rowspan="">{{$cat->name}}</td>--}}
+                    {{--</tr>--}}
+                    {{--@endif--}}
+                    {{--@elseif ( Config::get('app.locale') == 'vi' )--}}
+                    {{--@if($cat->locale == 'vi')--}}
+                    {{--<tr>--}}
+                    {{--<td data-title="Mức đầu tư" class="category"--}}
+                    {{--rowspan="">{{$cat->name}}</td>--}}
+                    {{--</tr>--}}
+                    {{--@endif--}}
+                    {{--@endif--}}
+                    @foreach($product as $pro)
+                        @if ( Config::get('app.locale') == 'en')
+                            @if($pro->locale == 'en')
+                                <tr>
+                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                        @if(is_numeric($pro->interest_rate))
+                                            {{ $pro->interest_rate }} %
+                                        @else
+                                            {{ $pro->interest_rate }}
+                                        @endif
+                                    </td>
+                                    <td data-title="Dành cho NĐT" class="investors">
+                                        {{ $pro->investors }} %
+                                    </td>
+                                    <td data-title="Dành cho quỹ" class="funds">
+                                        {{ $pro->funds }} %
+                                    </td>
+                                </tr>
                             @endif
-                        @endforeach
+                        @elseif ( Config::get('app.locale') == 'vi' )
+                            @if($pro->locale == 'vi')
+                                <tr>
+                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                        @if(is_numeric($pro->interest_rate))
+                                            {{ $pro->interest_rate }} %
+                                        @else
+                                            {{ $pro->interest_rate }}
+                                        @endif
+                                    </td>
+                                    <td data-title="Dành cho NĐT" class="investors">
+                                        {{ $pro->investors }} %
+                                    </td>
+                                    <td data-title="Dành cho quỹ" class="funds">
+                                        {{ $pro->funds }} %
+                                    </td>
+                                </tr>
+                            @endif
+                        @endif
+                    @endforeach
                     <tr>
                         <td colspan="5" data-title="Lựa chọn" class="option">
-                            <a href="{{route('product')}}"><button class="btn btn-danger">
-                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                {{ trans('content.buy') }}
-                                </button></a>
-                            <a href=""><button class="btn btn-danger">
+                            <a href="{{route('product')}}">
+                                <button class="btn btn-danger">
                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                     {{ trans('content.buy') }}
-                                </button></a>
+                                </button>
+                            </a>
+                            <a href="">
+                                <button class="btn btn-danger">
+                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    {{ trans('content.buy') }}
+                                </button>
+                            </a>
                         </td>
                     </tr>
                     </tbody>
@@ -382,73 +354,141 @@
                 </div> <!-- #heading-text -->
             </div>
             <div class="row">
-                    <div class="col-sm-6">
-                        @foreach($quest_answer as $faqs)
-                            @if($faqs->id % 2 != 0)
-                                <div class="panel-group" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
-                                            <h4 class="panel-title">
-                                                <a id="faqs_{{$faqs->id}}" class="collapsed" data-toggle="collapse" data-parent="#accordion-1"
-                                                   href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    {!! $faqs->quest !!}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="answer_{{$faqs->id}}" class="panel-collapse collapse" role="tabpanel"
-                                             aria-labelledby="headingOne" aria-expanded="false">
-                                            <div class="panel-body">
-                                                {!! $faqs->answer !!}
+                <div class="col-sm-6">
+                    @foreach($quest_answer as $faqs)
+                        @if ( Config::get('app.locale') == 'en')
+                            @if($faqs->locale == 'en')
+                                @if($faqs->id % 2 != 0)
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
+                                                <h4 class="panel-title">
+                                                    <a id="faqs_{{$faqs->id}}" class="collapsed" data-toggle="collapse"
+                                                       data-parent="#accordion-1"
+                                                       href="#collapseOne" aria-expanded="false"
+                                                       aria-controls="collapseOne">
+                                                        {!! $faqs->quest !!}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="answer_{{$faqs->id}}" class="panel-collapse collapse"
+                                                 role="tabpanel"
+                                                 aria-labelledby="headingOne" aria-expanded="false">
+                                                <div class="panel-body">
+                                                    {!! $faqs->answer !!}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endif
-                        <!-- end left accordion // .panel-group -->
-                        @endforeach
-                    </div>
-                    <div class="col-sm-6">
-                        @foreach($quest_answer as $faqs)
-                            @if($faqs->id % 2 == 0)
-                                <div class="panel-group" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
-                                            <h4 class="panel-title">
-                                                <a id="faqs_{{$faqs->id}}" class="collapsed" data-toggle="collapse" data-parent="#accordion-1"
-                                                   href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    {!! $faqs->quest !!}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="answer_{{$faqs->id}}" class="panel-collapse collapse" role="tabpanel"
-                                             aria-labelledby="headingOne" aria-expanded="false">
-                                            <div class="panel-body">
-                                                {!! $faqs->answer !!}
+                        @elseif ( Config::get('app.locale') == 'vi' )
+                            @if($faqs->locale == 'vi')
+                                @if($faqs->id % 2 != 0)
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
+                                                <h4 class="panel-title">
+                                                    <a id="faqs_{{$faqs->id}}" class="collapsed"
+                                                       data-toggle="collapse"
+                                                       data-parent="#accordion-1"
+                                                       href="#collapseOne" aria-expanded="false"
+                                                       aria-controls="collapseOne">
+                                                        {!! $faqs->quest !!}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="answer_{{$faqs->id}}" class="panel-collapse collapse"
+                                                 role="tabpanel"
+                                                 aria-labelledby="headingOne" aria-expanded="false">
+                                                <div class="panel-body">
+                                                    {!! $faqs->answer !!}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endif
-                        <!-- end left accordion // .panel-group -->
-                        @endforeach
-                    </div>
+                        @endif
+                    <!-- end left accordion // .panel-group -->
+                    @endforeach
+                </div>
+                <div class="col-sm-6">
+                    @foreach($quest_answer as $faqs)
+                        @if ( Config::get('app.locale') == 'en')
+                            @if($faqs->locale == 'en')
+                                @if($faqs->id % 2 == 0)
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
+                                                <h4 class="panel-title">
+                                                    <a id="faqs_{{$faqs->id}}" class="collapsed" data-toggle="collapse"
+                                                       data-parent="#accordion-1"
+                                                       href="#collapseOne" aria-expanded="false"
+                                                       aria-controls="collapseOne">
+                                                        {!! $faqs->quest !!}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="answer_{{$faqs->id}}" class="panel-collapse collapse"
+                                                 role="tabpanel"
+                                                 aria-labelledby="headingOne" aria-expanded="false">
+                                                <div class="panel-body">
+                                                    {!! $faqs->answer !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endif
+                        @elseif ( Config::get('app.locale') == 'vi' )
+                            @if($faqs->locale == 'vi')
+                                @if($faqs->id % 2 == 0)
+                                    <div class="panel-group" role="tablist" aria-multiselectable="true">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="heading-{{$faqs->id}}">
+                                                <h4 class="panel-title">
+                                                    <a id="faqs_{{$faqs->id}}" class="collapsed"
+                                                       data-toggle="collapse"
+                                                       data-parent="#accordion-1"
+                                                       href="#collapseOne" aria-expanded="false"
+                                                       aria-controls="collapseOne">
+                                                        {!! $faqs->quest !!}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="answer_{{$faqs->id}}" class="panel-collapse collapse"
+                                                 role="tabpanel"
+                                                 aria-labelledby="headingOne" aria-expanded="false">
+                                                <div class="panel-body">
+                                                    {!! $faqs->answer !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endif
+                        @endif
+                    <!-- end left accordion // .panel-group -->
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
     @foreach($quest_answer as $faqs)
-    <script>
-        $(document).ready(function () {
-            $("#faqs_{{$faqs->id}}").on("click", function () {
-                {{--$("#heading-{{$faqs->id}}").css('color','#10a784');--}}
-                if ($("#answer_{{$faqs->id}}").css('display') == 'none') {
-                    $("#answer_{{$faqs->id}}").show();
-                } else {
-                    $("#answer_{{$faqs->id}}").hide();
-                    {{--$("#heading-{{$faqs->id}}").css('color','#333');--}}
-                }
+        <script>
+            $(document).ready(function () {
+                $("#faqs_{{$faqs->id}}").on("click", function () {
+                    {{--$("#heading-{{$faqs->id}}").css('color','#10a784');--}}
+                    if ($("#answer_{{$faqs->id}}").css('display') == 'none') {
+                        $("#answer_{{$faqs->id}}").show();
+                    } else {
+                        $("#answer_{{$faqs->id}}").hide();
+                        {{--$("#heading-{{$faqs->id}}").css('color','#333');--}}
+                    }
+                });
             });
-        });
-    </script>
+        </script>
     @endforeach
 
     {{--<!-- Price-Table -->--}}
