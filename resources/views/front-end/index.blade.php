@@ -1,5 +1,6 @@
 @extends('front-end.layouts.master')
 @section('content')
+    <?php use \App\Http\Controllers\HomeController; ?>
     <div id="preloader"></div>
 
     <div id="wrapper">
@@ -261,81 +262,82 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {{--@foreach($list_cat as $cat)--}}
-                    {{--@if ( Config::get('app.locale') == 'en')--}}
-                    {{--@if($cat->locale == 'en')--}}
-                    {{--<tr>--}}
-                    {{--<td data-title="Mức đầu tư" class="category"--}}
-                    {{--rowspan="">{{$cat->name}}</td>--}}
-                    {{--</tr>--}}
-                    {{--@endif--}}
-                    {{--@elseif ( Config::get('app.locale') == 'vi' )--}}
-                    {{--@if($cat->locale == 'vi')--}}
-                    {{--<tr>--}}
-                    {{--<td data-title="Mức đầu tư" class="category"--}}
-                    {{--rowspan="">{{$cat->name}}</td>--}}
-                    {{--</tr>--}}
-                    {{--@endif--}}
-                    {{--@endif--}}
-                    @foreach($product as $pro)
+                    @foreach($list_cat as $cat)
                         @if ( Config::get('app.locale') == 'en')
-                            @if($pro->locale == 'en')
+                            @if($cat->locale == 'en')
                                 <tr>
-                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                        @if(is_numeric($pro->interest_rate))
-                                            {{ $pro->interest_rate }} %
-                                        @else
-                                            {{ $pro->interest_rate }}
-                                        @endif
-                                    </td>
-                                    <td data-title="Dành cho NĐT" class="investors">
-                                        {{ $pro->investors }} %
-                                    </td>
-                                    <td data-title="Dành cho quỹ" class="funds">
-                                        {{ $pro->funds }} %
-                                    </td>
+                                    <td data-title="Mức đầu tư" class="category"
+                                        rowspan="{{ \App\Http\Controllers\HomeController::getProductByCatID($cat->id) }}">{{$cat->name}}</td>
                                 </tr>
                             @endif
                         @elseif ( Config::get('app.locale') == 'vi' )
-                            @if($pro->locale == 'vi')
+                            @if($cat->locale == 'vi')
                                 <tr>
-                                    <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                    <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                    <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                        @if(is_numeric($pro->interest_rate))
-                                            {{ $pro->interest_rate }} %
-                                        @else
-                                            {{ $pro->interest_rate }}
-                                        @endif
-                                    </td>
-                                    <td data-title="Dành cho NĐT" class="investors">
-                                        {{ $pro->investors }} %
-                                    </td>
-                                    <td data-title="Dành cho quỹ" class="funds">
-                                        {{ $pro->funds }} %
-                                    </td>
+                                    <td data-title="Mức đầu tư" class="category"
+                                        rowspan="{{$count}}">{{$cat->name}}</td>
                                 </tr>
                             @endif
                         @endif
+                        @foreach($product as $pro)
+                            @if ( Config::get('app.locale') == 'en')
+                                @if($pro->locale == 'en')
+                                    <tr>
+                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                            @if(is_numeric($pro->interest_rate))
+                                                {{ $pro->interest_rate }} %
+                                            @else
+                                                {{ $pro->interest_rate }}
+                                            @endif
+                                        </td>
+                                        <td data-title="Dành cho NĐT" class="investors">
+                                            {{ $pro->investors }} %
+                                        </td>
+                                        <td data-title="Dành cho quỹ" class="funds">
+                                            {{ $pro->funds }} %
+                                        </td>
+                                    </tr>
+                                @endif
+                            @elseif ( Config::get('app.locale') == 'vi' )
+                                @if($pro->locale == 'vi')
+                                    <tr>
+                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
+                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                            @if(is_numeric($pro->interest_rate))
+                                                {{ $pro->interest_rate }} %
+                                            @else
+                                                {{ $pro->interest_rate }}
+                                            @endif
+                                        </td>
+                                        <td data-title="Dành cho NĐT" class="investors">
+                                            {{ $pro->investors }} %
+                                        </td>
+                                        <td data-title="Dành cho quỹ" class="funds">
+                                            {{ $pro->funds }} %
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endif
+                        @endforeach
+                        <tr>
+                            <td colspan="5" data-title="Lựa chọn" class="option">
+                                <a href="{{route('product')}}">
+                                    <button class="btn btn-danger">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        {{ trans('content.buy') }}
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="btn btn-danger">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        {{ trans('content.buy') }}
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
                     @endforeach
-                    <tr>
-                        <td colspan="5" data-title="Lựa chọn" class="option">
-                            <a href="{{route('product')}}">
-                                <button class="btn btn-danger">
-                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                    {{ trans('content.buy') }}
-                                </button>
-                            </a>
-                            <a href="">
-                                <button class="btn btn-danger">
-                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                    {{ trans('content.buy') }}
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

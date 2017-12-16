@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="front-end/css/owl.theme.css">
     <link rel="stylesheet" href="front-end/css/owl.transitions.css">
     <link rel="stylesheet" href="front-end/css/animate.css">
+    <link rel="stylesheet" href="front-end/css/css.css">
+    <link rel="stylesheet" href="front-end/css/metisMenu.min.css">
     <link rel="stylesheet" href="front-end/js/nivo-lightbox/nivo-lightbox.css">
     <link rel="stylesheet" href="front-end/js/nivo-lightbox/nivo-lightbox-theme.css">
     <link rel="stylesheet" href="front-end/css/custom.css">
@@ -85,6 +87,7 @@
 </script>
 <script src="front-end/js/jquery-ui-1.10.3.min.js"></script>
 <script src="front-end/js/jquery.knob.js"></script>
+<script src="front-end/js/jquery.yiiactiveform.js"></script>
 <script src="front-end/js/daterangepicker.js"></script>
 <script src="front-end/js/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="front-end/js/smoothscroll.js"></script>

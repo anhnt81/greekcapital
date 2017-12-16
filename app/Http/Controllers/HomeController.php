@@ -8,6 +8,7 @@ use App\Faqs;
 use App\Gcapital;
 use App\Product;
 use DB;
+use Mail;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,9 +28,6 @@ class HomeController extends Controller
             ->where('category.locale','vi')
             ->where('category.exception','0')
             ->get()->toArray();
-//        echo '<pre>';
-//        print_r($category);
-//        die;
 
         $product = DB::table('product')
             ->select ("product.*", "category.name as cat_name","category.exception")
@@ -41,12 +39,13 @@ class HomeController extends Controller
 
     }
 
-    public function getProductByCatID($id){
+    public static function getProductByCatID($id){
         $product = DB::table('product')
             ->where('product.cat_id',$id)
             ->get()->toArray();
         return $product;
     }
+
     public function getLanguage(Request $request)
     {
         if($request->lang <> ''){
@@ -68,5 +67,25 @@ class HomeController extends Controller
 
     public function getProduct(){
         return view('front-end.product');
+    }
+    public function getEmail(){
+        return view('front-end.email.step1');
+    }
+    public function getStep2(){
+        return view('front-end.step2');
+    }
+    public function postStep1(Request $request){
+        $data = array(
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'telephone' => $request->input('telephone'),
+        );
+
+        Mail::send('front-end.email.step1', ['list' => $data], function($message) use ($data)
+        {
+            $message->from('chipstart1994@gmail.com', 'Customer');
+            $message->to('anhntd00199@fpt.edu.vn', 'Tuấn Anh')->subject('Thông tin nhà đầu tư!');
+        });
+        return redirect()->route('step2');
     }
 }
