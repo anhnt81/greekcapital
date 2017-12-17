@@ -80,7 +80,7 @@
                     <div class="progress-bar"></div>
                 </div>
                 <a href="#" class="bs-wizard-dot"></a>
-                <div class="bs-wizard-info text-center">Bước 1: Đăng ký đầu tư</div>
+                <div class="bs-wizard-info text-center">{{ trans('product.step1') }}</div>
             </div>
 
             <div class="col-xs-3 bs-wizard-step disabled">
@@ -88,7 +88,7 @@
                     <div class="progress-bar"></div>
                 </div>
                 <a href="#" class="bs-wizard-dot"></a>
-                <div class="bs-wizard-info text-center">Bước 2: Lấy số hợp đồng</div>
+                <div class="bs-wizard-info text-center">{{ trans('product.step2') }}</div>
             </div>
 
             <div class="col-xs-3 bs-wizard-step disabled">
@@ -96,7 +96,7 @@
                     <div class="progress-bar"></div>
                 </div>
                 <a href="#" class="bs-wizard-dot"></a>
-                <div class="bs-wizard-info text-center">Bước 3: Chuyển khoản</div>
+                <div class="bs-wizard-info text-center">{{ trans('product.step3') }}</div>
             </div>
 
             <div class="col-xs-3 bs-wizard-step disabled">
@@ -104,7 +104,7 @@
                     <div class="progress-bar"></div>
                 </div>
                 <a href="#" class="bs-wizard-dot"></a>
-                <div class="bs-wizard-info text-center">Bước 4: Hoàn tất</div>
+                <div class="bs-wizard-info text-center">{{ trans('product.step4') }}</div>
             </div>
         </div>
 
@@ -114,35 +114,34 @@
                 </div>
                 <div class="login-panel panel panel-default" style="margin-top: 5%;">
                     <div class="panel-heading" style="padding: 10px 15px;background-color: #f5f5f5;" id="title_login">
-                        <h3 class="panel-title">Bước 1: ĐĂNG KÝ ĐẦU TƯ</h3>
+                        <h3 class="panel-title">{{ trans('product.step1') }}</h3>
                     </div>
                     <div class="panel-body">
-                        <p>Quý khách vui lòng nhập đầy đủ các thông tin dưới đây để Đăng ký đầu tư</p>
+                        <p>{{ trans('product.info') }}</p>
                         <form id="contact-form" action="{{route('postStep1')}}" method="post">
                             <input name="_token" type="hidden" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <input class="form-control" placeholder="Họ và tên *" name="name"
+                                <input class="form-control" placeholder="{{ trans('product.name') }}" name="name"
                                        id="ContactPenUserForm_name" type="text" maxlength="100"/></div>
                             <div class="form-group">
                                 <div class="error" id="ContactPenUserForm_name_em_" style="display:none"></div>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Email *" name="email"
+                                <input class="form-control" placeholder="{{ trans('product.email') }}" name="email"
                                        id="ContactPenUserForm_email" type="text" maxlength="100"/></div>
                             <div class="form-group">
                                 <div class="error" id="ContactPenUserForm_email_em_" style="display:none"></div>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Số điện thoại *"
+                                <input class="form-control" placeholder="{{ trans('product.phone') }}"
                                        name="telephone" id="ContactPenUserForm_telephone"
                                        type="text" maxlength="100"/></div>
                             <div class="form-group">
                                 <div class="error" id="ContactPenUserForm_telephone_em_" style="display:none"></div>
                             </div>
-                            <input class="btn btn-success " type="submit" name="yt0" value="Đăng ký"/>
+                            <input class="btn btn-success " type="submit" name="yt0" value="{{ trans('product.registered') }}"/>
                             <p></p>
-                            <p class="small" style="color: #aaa"><i>Nếu Quý khách đã đăng ký đầu tư tại Passion
-                                    Investment, vui lòng nhập đúng Email và Họ tên đầy đủ đã đăng ký trước đó</i></p>
+                            <p class="small" style="color: #aaa"><i>{{ trans('product.msg') }}</i></p>
                         </form>
                     </div>
                 </div>
@@ -165,7 +164,7 @@
                     'clientValidation': function (value, messages, attribute) {
 
                         if (jQuery.trim(value) == '') {
-                            messages.push("H\u1ecd v\u00e0 t\u00ean kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ec3 tr\u1ed1ng.");
+                            messages.push("{{ trans('product.validate_name') }}");
                         }
 
 
@@ -188,7 +187,7 @@
                     'clientValidation': function (value, messages, attribute) {
 
                         if (jQuery.trim(value) == '') {
-                            messages.push("Email kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ec3 tr\u1ed1ng.");
+                            messages.push("{{ trans('product.validate_email') }}");
                         }
 
 
@@ -216,14 +215,14 @@
                     'clientValidation': function (value, messages, attribute) {
 
                         if (jQuery.trim(value) == '') {
-                            messages.push("S\u1ed1 \u0111i\u1ec7n tho\u1ea1i kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ec3 tr\u1ed1ng.");
+                            messages.push("{{ trans('product.validate_phone') }}");
                         }
 
 
                         if (jQuery.trim(value) != '') {
 
-                            if (value.length > 100) {
-                                messages.push("S\u1ed1 \u0111i\u1ec7n tho\u1ea1i is too long (maximum is 100 characters).");
+                            if (value.length < 9) {
+                                messages.push("{{ trans('product.val_phone_length') }}");
                             }
 
                         }

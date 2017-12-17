@@ -496,6 +496,8 @@ input[type="email"]:focus {
 
 input[type="submit"] {
     padding: 0px;
+    margin-top: 10px;
+    margin-left: 33%;
 }
 
 .btn-sub {
@@ -843,10 +845,7 @@ ul.price-table-chart li:nth-child(2) .price_table-button {
 
 #contact {
     padding: 60px 15px;
-}
-
-#contact p {
-    font-size: 24px;
+    background-color: #eceff1;
 }
 
 form {
@@ -1406,4 +1405,19 @@ a.collapsed:before {
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
     border-color: #f7f7f7;
+}
+.contact-box{
+    background: #FFF;
+    border-radius: 3px;
+    padding: 10px 30px;
+    margin: 20px 0;
+}
+.contact-box p{
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.contact-box img{
+    float: right;
+    padding: 30px 20px;
 }

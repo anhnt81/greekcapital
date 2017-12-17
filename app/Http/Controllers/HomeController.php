@@ -21,7 +21,6 @@ class HomeController extends Controller
         $gcapital = Gcapital::all();
         $quest_answer = Faqs::all();
         $list_cat = DB::table('category')
-            ->where('category.exception','0')
             ->get()->toArray();
 
         $category = DB::table('category')
@@ -37,6 +36,14 @@ class HomeController extends Controller
 
         return view('front-end.index',compact('gcapital','employee','product','quest_answer','category','list_cat'));
 
+    }
+
+    public static function countProduct($id){
+        $product = DB::table('product')
+            ->where('product.cat_id',$id)
+            ->get()->toArray();
+        $count = count($product) + 1;
+        return $count;
     }
 
     public static function getProductByCatID($id){
@@ -68,12 +75,23 @@ class HomeController extends Controller
     public function getProduct(){
         return view('front-end.product');
     }
+
     public function getEmail(){
         return view('front-end.email.step1');
     }
+
     public function getStep2(){
         return view('front-end.step2');
     }
+
+    public  function postStep2(){
+        return redirect()->route('step3');
+    }
+
+    public function getStep3(){
+        return view('front-end.step3');
+    }
+
     public function postStep1(Request $request){
         $data = array(
             'name' => $request->input('name'),
@@ -87,5 +105,19 @@ class HomeController extends Controller
             $message->to('anhntd00199@fpt.edu.vn', 'Tuấn Anh')->subject('Thông tin nhà đầu tư!');
         });
         return redirect()->route('step2');
+    }
+    public function postContact(Request $request){
+        $data = array(
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'telephone' => $request->input('telephone'),
+            'message' => $request->input('message'),
+        );
+
+        Mail::send('front-end.email.contact', ['list' => $data], function($message) use ($data)
+        {
+            $message->from('chipstart1994@gmail.com', 'Customer');
+            $message->to('greekcapital888@gmail.com', 'Tuấn Anh')->subject('Thông tin nhà đầu tư!');
+        });
     }
 }

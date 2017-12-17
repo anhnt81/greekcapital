@@ -41,8 +41,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="http://pif.vn" target="_blank"><img
-                                    src="/web/images/logo-white.png" height="50"/></a>
+                        <a class="navbar-brand" href="#" target="_blank"><img
+                                    src="front-end/img/greek-capital.png" width="50" height="50"/></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,11 +50,11 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="http://members.pif.vn/contactPen/">Đầu tư ngay <span
                                             class="sr-only">(current)</span></a></li>
-                            <li><a href="http://pif.vn" target="_blank">Website</a></li>
+                            <li><a href="{{ asset('') }}" target="_blank">Website</a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="tel:0915849235"><i class="fa fa-phone"></i> 0915.849.235</a></li>
+                            <li><a href="tel:0966607094"><i class="fa fa-phone"></i> 0966.607.094</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -119,8 +119,8 @@
                     </div>
                     <div class="panel-body">
 
-                        <form id="contact-form" action="/contactPen/CreateHD" method="post">
-
+                        <form id="contact-form" action="{{ route('postStep2') }}" method="post">
+                            <input name="_token" type="hidden" value="{{ csrf_token() }}">
                             <div class="col-md-12">
                                 <h4>THÔNG TIN</h4>
                             </div>
@@ -187,7 +187,7 @@
                                 <div class="form-group">
                                     <div class="error" id="ContactPenForm_investment_em_" style="display:none"></div>
                                 </div>
-                                <input class="btn btn-success " id="btnDK" type="submit" name="yt0" value="Đầu tư"/>
+                                <input class="btn btn-success" id="btnDK" type="submit" name="yt0" value="Đầu tư"/>
                             </div>
                         </form>
 

@@ -84,8 +84,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 /* Front-end */
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('/product', ['as' => 'product', 'uses' => 'HomeController@getProduct']);
-Route::post('/product', ['as' => 'postStep1', 'uses' => 'HomeController@postStep1']);
-Route::get('/step2', ['as' => 'step2', 'uses' => 'HomeController@getStep2']);
-Route::get('/email', ['as' => 'email', 'uses' => 'HomeController@getEmail']);
+Route::post('/contact', ['as' => 'form.contact', 'uses' => 'HomeController@postContact']);
+
+Route::get('product', ['as' => 'product', 'uses' => 'HomeController@getProduct']);
+Route::post('product', ['as' => 'postStep1', 'uses' => 'HomeController@postStep1']);
+
+Route::get('step2', ['as' => 'step2', 'uses' => 'HomeController@getStep2']);
+Route::post('step2', ['as' => 'postStep2', 'uses' => 'HomeController@postStep2']);
+
+Route::get('step3', ['as' => 'step3', 'uses' => 'HomeController@getStep3']);
+
+
+Route::get('email', ['as' => 'email', 'uses' => 'HomeController@getEmail']);
 Route::get('/{lang?}', ['as' => 'lang', 'uses' => 'HomeController@getLanguage']);

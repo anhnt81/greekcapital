@@ -22,6 +22,8 @@ return [
     'funds' => 'Dành cho Quỹ',
     'option' => 'Lựa chọn',
     'faqs' => 'FAQs',
+    'btn_contact' => 'Liên hệ',
+    'contact' => 'Liên hệ',
 
 
 ];

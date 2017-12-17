@@ -29,9 +29,9 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#about" class="active">{{ trans('header.about') }}</a></li>
                                 <li><a href="#Meet">{{ trans('header.our_team') }}</a></li>
+                                <li><a href="#ScreenShot">Screen</a></li>
                                 <li><a href="#product">{{ trans('header.product') }}</a></li>
                                 <li><a href="#faqs">FAQs</a></li>
-                                <li><a href="#ScreenShot">Screen</a></li>
                                 <li><a href="#contact">Contact</a></li>
                                 @if ( Config::get('app.locale') == 'en')
                                     <li class="dropdown">
@@ -263,88 +263,110 @@
                     </thead>
                     <tbody>
                     @foreach($list_cat as $cat)
-                        @if ( Config::get('app.locale') == 'en')
-                            @if($cat->locale == 'en')
-                                <tr>
-                                    <td data-title="Mức đầu tư" class="category"
-                                        rowspan="{{ \App\Http\Controllers\HomeController::getProductByCatID($cat->id) }}">{{$cat->name}}</td>
-                                </tr>
-                            @endif
-                        @elseif ( Config::get('app.locale') == 'vi' )
-                            @if($cat->locale == 'vi')
-                                <tr>
-                                    <td data-title="Mức đầu tư" class="category"
-                                        rowspan="{{$count}}">{{$cat->name}}</td>
-                                </tr>
-                            @endif
-                        @endif
-                        @foreach($product as $pro)
+                        @if($cat->exception == 0)
                             @if ( Config::get('app.locale') == 'en')
-                                @if($pro->locale == 'en')
+                                @if($cat->locale == 'en')
                                     <tr>
-                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                            @if(is_numeric($pro->interest_rate))
-                                                {{ $pro->interest_rate }} %
-                                            @else
-                                                {{ $pro->interest_rate }}
-                                            @endif
-                                        </td>
-                                        <td data-title="Dành cho NĐT" class="investors">
-                                            {{ $pro->investors }} %
-                                        </td>
-                                        <td data-title="Dành cho quỹ" class="funds">
-                                            {{ $pro->funds }} %
-                                        </td>
+                                        <td data-title="Mức đầu tư" class="category"
+                                            rowspan="{!! \App\Http\Controllers\HomeController::countProduct($cat->id); !!}">{{$cat->name}}</td>
                                     </tr>
                                 @endif
                             @elseif ( Config::get('app.locale') == 'vi' )
-                                @if($pro->locale == 'vi')
+                                @if($cat->locale == 'vi')
                                     <tr>
-                                        <td data-title="Mức đầu tư" class="category">{{ $pro->cat_name }}</td>
-                                        <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
-                                        <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
-                                            @if(is_numeric($pro->interest_rate))
-                                                {{ $pro->interest_rate }} %
-                                            @else
-                                                {{ $pro->interest_rate }}
-                                            @endif
-                                        </td>
-                                        <td data-title="Dành cho NĐT" class="investors">
-                                            {{ $pro->investors }} %
-                                        </td>
-                                        <td data-title="Dành cho quỹ" class="funds">
-                                            {{ $pro->funds }} %
-                                        </td>
+                                        <td data-title="Mức đầu tư" class="category"
+                                            rowspan="{!! \App\Http\Controllers\HomeController::countProduct($cat->id); !!}">{{$cat->name}}</td>
                                     </tr>
                                 @endif
                             @endif
-                        @endforeach
-                        <tr>
-                            <td colspan="5" data-title="Lựa chọn" class="option">
-                                <a href="{{route('product')}}">
-                                    <button class="btn btn-danger">
-                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                        {{ trans('content.buy') }}
-                                    </button>
-                                </a>
-                                <a href="">
-                                    <button class="btn btn-danger">
-                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                        {{ trans('content.buy') }}
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
+                            <?php $proById = HomeController::getProductByCatID($cat->id); ?>
+                            @foreach($proById as $pro)
+                                @if ( Config::get('app.locale') == 'en')
+                                    @if($pro->locale == 'en')
+                                        <tr>
+                                            <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                            <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                                @if(is_numeric($pro->interest_rate))
+                                                    {{ $pro->interest_rate }} %
+                                                @else
+                                                    {{ $pro->interest_rate }}
+                                                @endif
+                                            </td>
+                                            <td data-title="Dành cho NĐT" class="investors">
+                                                {{ $pro->investors }} %
+                                            </td>
+                                            <td data-title="Dành cho quỹ" class="funds">
+                                                {{ $pro->funds }} %
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @elseif ( Config::get('app.locale') == 'vi' )
+                                    @if($pro->locale == 'vi')
+                                        <tr>
+                                            <td data-title="Sản phẩm" class="product">{{ $pro->name }}</td>
+                                            <td data-title="Quỹ đảm bảo lãi xuất năm" class="interest">
+                                                @if(is_numeric($pro->interest_rate))
+                                                    {{ $pro->interest_rate }} %
+                                                @else
+                                                    {{ $pro->interest_rate }}
+                                                @endif
+                                            </td>
+                                            <td data-title="Dành cho NĐT" class="investors">
+                                                {{ $pro->investors }} %
+                                            </td>
+                                            <td data-title="Dành cho quỹ" class="funds">
+                                                {{ $pro->funds }} %
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @elseif($cat->exception == 1)
+                            @if ( Config::get('app.locale') == 'en')
+                                @if($cat->locale == 'en')
+                                    <tr bgcolor="#83efb8">
+                                        <td>{{ $cat->name }}</td>
+                                        <td colspan="4" data-title="Lựa chọn" class="option">
+                                            AGREE
+                                        </td>
+                                    </tr>
+                                @elseif ( Config::get('app.locale') == 'vi' )
+                                    @if($pro->locale == 'vi')
+                                        <tr bgcolor="#83efb8">
+                                            <td>{{ $cat->name }}</td>
+                                            <td colspan="4" data-title="Lựa chọn" class="option">
+                                                THỎA THUẬN
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endif
+                            @endif
+                        @endif
                     @endforeach
+                    <tr>
+                        <td colspan="5" data-title="Lựa chọn" class="option">
+                            <a href="{{route('product')}}">
+                                <button class="btn btn-danger"
+                                        style="border-radius: 4px;padding: 10px 16px;margin-right: 15px;">
+                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    {{ trans('content.buy') }}
+                                </button>
+                            </a>
+                            <a href="#contact">
+                                <button class="btn btn-success" style="border-radius: 4px;padding: 10px 16px;">
+                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    {{ trans('content.btn_contact') }}
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
         <!-- </div>	container -->
     </section>    <!-- Product -->
-
     <!--FAQs
 ====================================== -->
     <section class="faq-accordion" id="faqs">
@@ -412,7 +434,6 @@
                                 @endif
                             @endif
                         @endif
-                    <!-- end left accordion // .panel-group -->
                     @endforeach
                 </div>
                 <div class="col-sm-6">
@@ -471,7 +492,6 @@
                                 @endif
                             @endif
                         @endif
-                    <!-- end left accordion // .panel-group -->
                     @endforeach
                 </div>
             </div>
@@ -481,118 +501,93 @@
         <script>
             $(document).ready(function () {
                 $("#faqs_{{$faqs->id}}").on("click", function () {
-                    {{--$("#heading-{{$faqs->id}}").css('color','#10a784');--}}
                     if ($("#answer_{{$faqs->id}}").css('display') == 'none') {
                         $("#answer_{{$faqs->id}}").show();
                     } else {
                         $("#answer_{{$faqs->id}}").hide();
-                        {{--$("#heading-{{$faqs->id}}").css('color','#333');--}}
                     }
                 });
             });
         </script>
     @endforeach
-
-    {{--<!-- Price-Table -->--}}
-    {{--<section id="price_table">--}}
-    {{--<div class="container">--}}
-    {{--<div class="row main_content">--}}
-    {{--<ul class="price-table-chart">--}}
-    {{--<li class="text-center">--}}
-    {{--<strong>NORMAL</strong>--}}
-    {{--<span class="big">$100</span>--}}
-    {{--<span class="price_table-pay">4 quarterly payments</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>--}}
-    {{--<br>--}}
-    {{--<a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>--}}
-    {{--</li>--}}
-
-    {{--<li class="text-center">--}}
-    {{--<strong>PERSONAL</strong>--}}
-    {{--<span class="big">$200</span>--}}
-    {{--<span class="price_table-pay">4 quarterly payments</span>--}}
-    {{--<hr class="full">--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>--}}
-    {{--<br>--}}
-    {{--<a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>--}}
-
-    {{--</li>--}}
-
-    {{--<li class="text-center">--}}
-    {{--<strong>EXTRA</strong>--}}
-    {{--<span class="big">$300</span>--}}
-    {{--<span class="price_table-pay">4 quarterly payments</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> 20 Users</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Unlimited dashboards</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom CSS</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> IP Restriction</span>--}}
-    {{--<span class="price_table-description"><i class="fa fa-check"></i> Custom domain</span>--}}
-    {{--<br>--}}
-    {{--<a class="btn btn-sub btn-primary" href="#" role="button">GET STARTED NOW</a>--}}
-    {{--</li>--}}
-    {{--</ul>--}}
-    {{--</div>    <!-- row main_content -->--}}
-    {{--</div>    <!-- container -->--}}
-    {{--</section>    <!-- price_table -->--}}
-
-    <!-- contact -->
+    <!-- end faqs -->
+    <!-- end section.faq-accordion -->
     <section id="contact">
-        <div class="container text-center">
-            <div class="row text-center">
-                <div class="bg-image">
-                    <div class="col-md-6 col-md-offset-3 text-center share-text wow animated zoomInDown heading-text">
-                        <p class="heading">
-                            If you got any questions, please do not hesitate to send us a message.
-                        </p>
+        <div class="row text-center heading">
+            <div class="wow animated zoomInDown heading-text">
+                <h3>{{ trans('content.btn_contact') }}</h3>
+                <hr class="full">
+            </div> <!-- #heading-text -->
+        </div>
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="contact-box">
+                    <div class="row">
+                        <div class="bg-image">
+                            <div class="col-md-12 share-text wow animated zoomInDown">
+                                <p class="heading" style="font-size: 22px;">
+                                    {{ trans('content.contact') }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row text-center main_content">
-                <form method="post" action="#" class="">
-                    <div class="col-md-4 col-md-offset-2 text-center">
-                        <div class="form">
-                            <div class="input-group margin-bottom-sm">
+                    <form method="post" action="{{ route('form.contact') }}" class="">
+                        <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <div class="input-group margin-bottom-sm">
 	  								<span class="input-group-addon">
 	  									<i class="fa fa-user fa-fw"></i>
 	  								</span>
-                                <input class="form-control" type="text" placeholder="Name" required>
-                            </div>
-                            <div class="input-group margin-bottom-sm">
+                                        <input class="form-control" name="name" type="text" placeholder="Name" required>
+                                    </div>
+                                    <div class="input-group margin-bottom-sm">
 	  								<span class="input-group-addon">
 	  									<i class="fa fa-envelope-o fa-fw"></i>
 	  								</span>
-                                <input class="form-control" name="email" type="email" placeholder="Email address"
-                                       required>
-                            </div>
-                            <div class="input-group margin-bottom-sm">
+                                        <input class="form-control" name="email" type="email"
+                                               placeholder="Email address"
+                                               required>
+                                    </div>
+                                    <div class="input-group margin-bottom-sm">
 	  								<span class="input-group-addon">
-	  									<i class="fa fa-tags fa-fw"></i>
+	  									<i class="fa fa-phone-square fa-fw"></i>
 	  								</span>
-                                <input class="form-control" type="text" placeholder="Subject">
+                                        <input class="form-control" name="telephone" type="text"
+                                               placeholder="Phone number">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="form">
-                            <div class="input-group margin-bottom-sm">
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <div class="input-group margin-bottom-sm">
 									<span class="input-group-addon">
 										<i class="fa fa-comment-o fa-fw"></i>
 									</span>
-                                <input type="text" name="text" class="form-control message" placeholder="Your Message">
+                                        <input type="text" name="message" class="form-control message"
+                                               placeholder="Your Message">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                        <input class="btn btn-sub" type="submit" value="Send Message">
+                    </form>
+                </div>
             </div>
-            <input class="btn btn-sub" type="submit" value="Send Message">
+            <div class="col-sm-6">
+                <div class="contact-box">
+                    <img src="{{asset('front-end/img/location-icon.png')}}" alt="location icon" class="wow zoomIn">
+                    <p>18th Floor, Handico Building, Pham Hung, Hanoi, Vietnam
+                        <br> Time: 8h00am - 8h00pm (GMT+7)
+                        <br>
+                        <br>+84 966 607 094
+                        <br>+84 999 365 8872
+                    </p>
+                </div>
+            </div>
         </div>
-    </section>    <!-- contacts -->
+        <!--  // end .row -->
+        </div>
+    </section>
 @endsection

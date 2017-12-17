@@ -22,5 +22,7 @@ return [
     'funds' => 'For the Fund',
     'option' => 'Option',
     'faqs' => 'FAQs',
+    'btn_contact' => 'Contact',
+    'contact' => 'Nếu bạn có bất kỳ câu hỏi nào, xin đừng ngần ngại gửi cho chúng tôi một tin nhắn.',
 
 ];
